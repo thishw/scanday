@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
 :root {
-    --primary-gradient: linear-gradient(135deg, #FF2174 0%, #9100B3 100%);
-    --primary-color: #FF2174;
-    --secondary-color: #9100B3;
+    --primary-gradient: linear-gradient(135deg, #007bff 0%, #00d2ff 100%);
+    --primary-color: #007bff;
+    --secondary-color: #00d2ff;
     --text-dark: #243038;
     --text-muted: #667085;
     --bg-white: #FFFFFF;
@@ -98,6 +98,7 @@ nav {
 .nav-links {
     display: flex;
     gap: 40px;
+    margin-bottom: 20px;
 }
 
 .nav-links a {
