@@ -313,3 +313,145 @@ footer {
     .hero-content h1 { font-size: 36px; }
     .services-grid { grid-template-columns: 1fr; }
 }
+
+
+
+/* CSS Append - Pricing Table, Map Card, Img Fluid & Layout Fixes */
+
+/* Pricing Table */
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    box-shadow: var(--shadow-soft);
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: 16px;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 22px;
+    text-align: left;
+    border-bottom: 1px solid #efefef;
+}
+
+.pricing-table th {
+    background: var(--primary-gradient);
+    color: white;
+    font-weight: 700;
+}
+
+.pricing-table tr:hover td {
+    background-color: var(--bg-light);
+}
+
+.pricing-table tr:last-child td {
+    border-bottom: none;
+}
+
+.pricing-price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+/* Map Link Card */
+.map-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 40px auto;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
+    max-width: 800px;
+    position: relative;
+    overflow: hidden;
+}
+
+.map-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: var(--primary-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.map-card:hover {
+    box-shadow: 0 15px 40px rgba(145, 0, 179, 0.15);
+    transform: translateY(-5px);
+}
+
+.map-icon {
+    font-size: 50px;
+    margin-right: 25px;
+}
+
+.map-text h4 {
+    font-size: 22px;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+.map-text p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0;
+}
+
+/* Base Image styling */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+    box-shadow: var(--shadow-soft);
+    display: block;
+    object-fit: cover;
+}
+
+/* Hero Modern Layout */
+.hero-layout {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding-top: 100px;
+}
+
+.hero-layout .hero-content {
+    flex: 1.2;
+}
+
+.hero-layout .hero-image {
+    flex: 1;
+}
+
+@media (max-width: 992px) {
+    .hero-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-layout .hero-content {
+        order: 1;
+    }
+    .hero-layout .hero-image {
+        order: 2;
+        margin-top: 30px;
+    }
+    .map-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .map-icon { margin-right: 0; }
+}
+
