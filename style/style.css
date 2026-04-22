@@ -122,7 +122,10 @@ nav {
 
 /* --- Hero Section --- */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 60px;
     display: flex;
     align-items: center;
     position: relative;
@@ -426,7 +429,6 @@ footer {
     display: flex;
     align-items: center;
     gap: 60px;
-    padding-top: 100px;
 }
 
 .hero-layout .hero-content {
