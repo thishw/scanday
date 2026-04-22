@@ -334,7 +334,7 @@ footer {
 
 .pricing-table th, .pricing-table td {
     padding: 22px;
-    text-align: left;
+    text-align: center; /* Changed from left out of explicit user request */
     border-bottom: 1px solid #efefef;
 }
 
