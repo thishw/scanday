@@ -1,0 +1,11 @@
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# SSH Keys
+github_deploy_key
+github_deploy_key.pub
+
+# Editors
+.vscode/
+.idea/
