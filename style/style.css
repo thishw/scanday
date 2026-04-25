@@ -78,7 +78,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
+    padding: 25px 0; /* 여유로운 상단 여백 */
     background-color: transparent;
     transition: var(--transition-smooth);
     backdrop-filter: blur(0px);
@@ -99,7 +99,7 @@ nav {
 }
 
 .logo {
-    font-size: 22px; /* 다시 조금 키움 */
+    font-size: 26px; /* 메뉴 글자가 커진 만큼 로고도 확대 */
     font-weight: 700;
     background: var(--primary-gradient);
     -webkit-background-clip: text;
@@ -110,7 +110,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 25px; /* 조금 줄여서 공간 확보 */
+    gap: 45px; /* 메뉴 간 간격을 시원하게 확대 */
     margin: 0;
     padding: 0;
     list-style: none;
@@ -118,11 +118,12 @@ nav {
 }
 
 .nav-links a {
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 700; /* 조금 더 강조 */
+    font-size: 1.15rem; /* 글자 크기 대폭 확대 */
     white-space: nowrap;
-    padding: 10px 5px;
+    padding: 10px 0;
     word-break: keep-all;
+    color: var(--text-dark);
 }
 
 .nav-links a:hover {
