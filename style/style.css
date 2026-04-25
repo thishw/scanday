@@ -110,8 +110,8 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 35px;
-    margin-left: auto; /* 우측 정렬로 변경하여 로고와 분리 */
+    gap: 25px; /* 조금 줄여서 공간 확보 */
+    margin: 0;
     padding: 0;
     list-style: none;
     transition: var(--transition-smooth);
@@ -119,14 +119,35 @@ nav {
 
 .nav-links a {
     font-weight: 600;
-    font-size: 16px; /* 가독성을 위해 다시 키움 */
+    font-size: 15px;
     white-space: nowrap;
-    padding: 10px 15px; /* 클릭 영역 및 여백 확보 */
+    padding: 10px 5px;
     word-break: keep-all;
 }
 
 .nav-links a:hover {
     color: var(--primary-color);
+}
+
+.nav-cta {
+    display: inline-block;
+    background: var(--primary-gradient);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(255, 33, 116, 0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 20px; /* 로고/메뉴와 간격 확보 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-cta:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 33, 116, 0.5);
+    color: white;
 }
 
 /* Floating Action Button (FAB) 제거 (헤더 근처 오배치됨) */
