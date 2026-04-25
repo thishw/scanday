@@ -51,7 +51,7 @@ ul {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 40px; /* 20px -> 40px로 늘려 좌우 여백 확보 */
 }
 
 /* Animations */
@@ -88,16 +88,13 @@ header.scrolled {
 
 nav {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap; /* 겹침 및 줄바꿈 절대 방지 */
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
     width: 100%;
 }
 
 .logo {
-    font-size: 17px; /* 소폭 추가 축소 */
+    font-size: 22px; /* 다시 조금 키움 */
     font-weight: 700;
     background: var(--primary-gradient);
     -webkit-background-clip: text;
@@ -108,17 +105,19 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 12px; /* 15px -> 12px 축소 */
-    margin-bottom: 0;
+    gap: 35px; /* 30px -> 35px 더 시원하게 */
+    margin: 0 auto;
     padding: 0;
     list-style: none;
-    flex-shrink: 1; /* 가용 공간에 따라 소폭 축소 허용 */
+    transition: var(--transition-smooth);
 }
 
 .nav-links a {
-    font-weight: 500;
-    font-size: 14px; /* 15px -> 14px 축소 */
+    font-weight: 600;
+    font-size: 16px; /* 가독성을 위해 다시 키움 */
     white-space: nowrap;
+    padding: 10px 15px; /* 클릭 영역 및 여백 확보 */
+    word-break: keep-all;
 }
 
 .nav-links a:hover {
@@ -126,16 +125,38 @@ nav {
 }
 
 .nav-cta {
-    margin-left: 0; /* space-between을 위해 auto 제거 */
     background: var(--primary-gradient);
     color: white;
-    padding: 7px 16px; /* 여백 추가 축소 */
+    padding: 12px 28px; /* 다시 시원하게 키움 */
     border-radius: 30px;
     font-weight: 600;
-    font-size: 12px; /* 13px -> 12px 축소 */
+    font-size: 14px;
     box-shadow: 0 4px 15px rgba(255, 33, 116, 0.3);
     white-space: nowrap;
     flex-shrink: 0;
+    margin-left: 0;
+}
+
+/* Hamburger Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 10px;
+    transition: var(--transition-smooth);
 }
 
 /* --- Hero Section --- */
@@ -615,8 +636,67 @@ footer {
     .stats-grid { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 1024px) {
+    .nav-links {
+        gap: 15px;
+    }
+    .nav-links a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
+
 @media (max-width: 768px) {
-    .nav-links { display: none; }
+    .menu-toggle {
+        display: flex;
+        order: 2;
+    }
+    
+    .nav-cta {
+        order: 3;
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .logo {
+        order: 1;
+        font-size: 18px;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        z-index: 1000;
+        margin: 0;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 20px;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+    
     .hero-content h1 { font-size: 36px; }
     .services-grid { grid-template-columns: 1fr; }
     .step-grid { grid-template-columns: 1fr; }

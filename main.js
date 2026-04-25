@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('header');
     const reveals = document.querySelectorAll('.reveal');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
 
     // Header scroll effect
     window.addEventListener('scroll', () => {
@@ -26,10 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(reveal);
     });
 
-    // Smooth scroll for nav links
+    // Smooth scroll for nav links & Close mobile menu
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            
+            // Close mobile menu if open
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
                 window.scrollTo({
@@ -39,4 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Hamburger Menu Toggle
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
 });
