@@ -105,8 +105,8 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 35px; /* 30px -> 35px 더 시원하게 */
-    margin: 0 auto;
+    gap: 35px;
+    margin: 0; /* auto 제거 */
     padding: 0;
     list-style: none;
     transition: var(--transition-smooth);
@@ -125,16 +125,17 @@ nav {
 }
 
 .nav-cta {
+    display: inline-block; /* 크기 및 여백 보장 */
     background: var(--primary-gradient);
     color: white;
-    padding: 12px 28px; /* 다시 시원하게 키움 */
+    padding: 12px 28px;
     border-radius: 30px;
     font-weight: 600;
     font-size: 14px;
     box-shadow: 0 4px 15px rgba(255, 33, 116, 0.3);
     white-space: nowrap;
     flex-shrink: 0;
-    margin-left: 0;
+    margin-left: auto; /* 확실하게 우측 끝으로 밀기 */
 }
 
 /* Hamburger Menu Toggle */
