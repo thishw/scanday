@@ -289,17 +289,20 @@ section {
 /* --- Services --- */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1-fraction);
+    grid-template-columns: repeat(2, 1fr); /* 2x2 레이아웃 적용 */
     gap: 30px;
 }
 
 .service-card {
     background: white;
-    padding: 40px;
-    border-radius: 20px;
+    padding: 50px 40px;
+    border-radius: 30px;
     box-shadow: var(--shadow-soft);
     transition: var(--transition-smooth);
     border: 1px solid #efefef;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 카드 높이 동일화 */
 }
 
 .service-card:hover {
