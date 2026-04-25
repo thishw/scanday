@@ -1026,5 +1026,34 @@ footer {
         padding: 12px 20px;
         font-size: 14px;
     }
+    .container {
+        padding: 0 25px !important; /* 모바일 가로 여백 최소 25px 확보 */
+    }
+}
+
+/* Reservation CTA Highlight (Naver Green #03C75A) */
+.nav-reserve a {
+    background-color: #03C75A !important;
+    color: white !important;
+    padding: 10px 22px !important;
+    border-radius: 30px !important;
+    box-shadow: 0 4px 15px rgba(3, 199, 90, 0.3) !important;
+    transition: var(--transition-smooth);
+}
+
+.nav-reserve a:hover {
+    background-color: #02b350 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(3, 199, 90, 0.4) !important;
+}
+
+.btn-reserve {
+    background-color: #03C75A !important;
+    color: white !important;
+    border-color: #03C75A !important;
+}
+
+.btn-reserve:hover {
+    background-color: #02b350 !important;
 }
 
