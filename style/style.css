@@ -110,7 +110,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 35px; /* 항목이 늘어난 만큼 간격을 세밀하게 조정 */
+    gap: 45px; /* 항목이 줄어든 만큼 간격을 다시 시원하게 확대 */
     margin: 0;
     padding: 0;
     list-style: none;
