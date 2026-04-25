@@ -351,10 +351,10 @@ section {
     text-align: center;
 }
 
-/* --- How It Works (4-Step Cards) --- */
+/* --- How It Works (3-Step Cards) --- */
 .step-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-top: 50px;
 }
