@@ -178,8 +178,8 @@ nav {
 .hero {
     min-height: 100vh;
     height: auto;
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 160px; /* 상단바와의 간격 대폭 확대 */
+    padding-bottom: 120px; /* 하단 여백 확대 */
     display: flex;
     align-items: center;
     position: relative;
@@ -262,12 +262,12 @@ nav {
 
 /* --- Sections --- */
 section {
-    padding: 100px 0;
+    padding: 140px 0; /* 섹션 간 간격 확대 */
 }
 
 .section-head {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px; /* 제목과 본문 사이 간격 확대 */
 }
 
 .section-head h2 {
@@ -730,6 +730,7 @@ footer {
         transform: translateY(-9px) rotate(-45deg);
     }
     
+    .hero { padding-top: 140px; padding-bottom: 80px; } /* 모바일에서도 충분한 상단 여백 확보 */
     .hero-content h1 { font-size: 36px; }
     .hero-btns { justify-content: center; }
     .services-grid { grid-template-columns: 1fr; }
