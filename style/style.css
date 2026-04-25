@@ -13,6 +13,11 @@
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+.highlight {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
 * {
     margin: 0;
     padding: 0;
