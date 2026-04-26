@@ -1,3 +1,11 @@
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /.keys/
+Disallow: /marketing_strategy/
+Disallow: /contents/
+
+User-agent: Yeti
+Allow: /
+
 Sitemap: https://scanday.kr/sitemap.xml
