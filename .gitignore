@@ -9,3 +9,6 @@ github_deploy_key.pub
 # Editors
 .vscode/
 .idea/
+
+# Private folder
+private/
