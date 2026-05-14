@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M69D54BW');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>최저가 스캔·출력 가격 계산기 | 스캔데이 왕십리점 (북스캔, 제본, 포스터)</title>
+  <meta name="description" content="왕십리역, 한양대 앞 최저가 보장 북스캔 및 출력 전문점 스캔데이. 흑백 인쇄 50원, 북스캔 30분에 6,000원! 방문 전 예상 결제 금액을 미리 계산해 보세요. 대형 출력, 포스터, 분철 제본까지 합리적인 가격에 제공합니다.">
+  <meta name="keywords" content="스캔데이 가격, 왕십리 북스캔 가격, 한양대 인쇄소 가격, 북스캔 계산기, 제본 가격 계산, 포스터 출력 비용">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scanday.kr/price_calculator.html">
+  
+  <meta property="og:title" content="스캔데이 왕십리점 | 북스캔 및 출력 가격 계산기">
+  <meta property="og:description" content="흑백 50원, 북스캔 6,000원부터! 방문 전 나의 예상 결제 금액을 투명하게 확인해 보세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scanday.kr/price_calculator.html">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="스캔데이 왕십리점 | 가격 계산기">
+  <meta name="twitter:description" content="왕십리/한양대 1등 북스캔. 저렴한 가격을 직접 계산해 보세요!">
+
+  <!-- 구조화 데이터 (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "스캔데이 예상 가격 계산기",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "왕십리 스캔데이의 셀프 북스캔, 제본, 대형 출력 및 일반 인쇄(흑백 50원 등)의 예상 비용을 계산해주는 웹 도구입니다.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    }
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+  <link rel="stylesheet" href="style/style.css?v=4.0">
+  <style>
+    .calculator-section {
+      padding: 100px 0 60px;
+      background-color: #f8f9fa;
+      min-height: 80vh;
+    }
+    .calculator-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: #e9ecef;
+      color: #495057;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tab-btn.active {
+      background: #007bff;
+      color: #fff;
+    }
+    .calc-group {
+      margin-bottom: 20px;
+    }
+    .calc-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #343a40;
+    }
+    .calc-group input, .calc-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .calc-group input[type="checkbox"] {
+      width: auto;
+      margin-right: 8px;
+      transform: scale(1.2);
+    }
+    .checkbox-label {
+      display: flex !important;
+      align-items: center;
+      font-weight: normal !important;
+      cursor: pointer;
+    }
+    .result-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #eef2ff;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #c7d2fe;
+    }
+    .result-box h3 {
+      margin: 0 0 10px 0;
+      color: #3730a3;
+      font-size: 18px;
+    }
+    .result-amount {
+      font-size: 32px;
+      font-weight: 800;
+      color: #007bff;
+    }
+    .hidden {
+      display: none;
+    }
+    .note-text {
+      font-size: 13px;
+      color: #6c757d;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M69D54BW" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header id="header">
+    <div class="container nav">
+      <a href="index.html" class="logo">SCANDAY 왕십리점</a>
+      <ul class="nav-links">
+        <li><a href="index.html">메인으로 돌아가기</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section class="calculator-section">
+      <div class="container">
+        <div class="section-head text-center">
+          <h2>예상 가격 계산기</h2>
+          <p>스캔 및 출력/제본 서비스의 예상 비용을 미리 계산해 보세요.</p>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
+          <a href="index.html" class="back-link">
+            <span>←</span> 스캔데이 홈으로 돌아가기
+          </a>
+        </div>
+
+        <div class="calculator-card">
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('print')">출력 및 제본</button>
+            <button class="tab-btn" onclick="switchTab('scan')">셀프 북스캔</button>
+            <button class="tab-btn" onclick="switchTab('poster')">대형출력 / 포스터</button>
+          </div>
+
+          <!-- 출력 및 제본 계산기 -->
+          <div id="print-calc" class="calc-form">
+            <div class="calc-group">
+              <label for="print-type">인쇄 방식</label>
+              <select id="print-type" onchange="calculatePrint()">
+                <option value="50">흑백 (페이지당 50원)</option>
+                <option value="250">컬러 레이저 (페이지당 250원)</option>
+              </select>
+            </div>
+            <div class="calc-group">
+              <label for="print-pages">페이지 수 (1권 기준)</label>
+              <input type="number" id="print-pages" min="1" value="100" oninput="calculatePrint()">
+            </div>
+            <div class="calc-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="need-binding" checked onchange="calculatePrint()">
+                스프링 제본 추가 (권당 3,000원)
+              </label>
+            </div>
+            <div class="calc-group">
+              <label for="print-copies">총 권수</label>
+              <input type="number" id="print-copies" min="1" value="1" oninput="calculatePrint()">
+            </div>
+
+            <div class="result-box">
+              <h3>예상 결제 금액</h3>
+              <div class="result-amount"><span id="print-total">8,000</span>원</div>
+              <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
+            </div>
+          </div>
+
+          <!-- 북스캔 계산기 -->
+          <div id="scan-calc" class="calc-form hidden">
+            <div class="calc-group">
+              <label for="scan-cutting-copies">재단 권수 (1,000원/권)</label>
+              <input type="number" id="scan-cutting-copies" min="0" value="1" oninput="calculateScan()">
+            </div>
+            <div class="calc-group">
+              <label for="scan-binding-copies">제본(복원) 권수 (3,000원/권)</label>
+              <input type="number" id="scan-binding-copies" min="0" value="1" oninput="calculateScan()">
+            </div>
+            <div class="calc-group">
+              <label for="scan-time">예상 스캔 시간 (최소 30분, 이후 10분 단위)</label>
+              <select id="scan-time" onchange="calculateScan()">
+                <option value="6000">30분 (6,000원)</option>
+                <option value="8000">40분 (8,000원)</option>
+                <option value="10000">50분 (10,000원)</option>
+                <option value="12000">1시간 (12,000원)</option>
+                <option value="14000">1시간 10분 (14,000원)</option>
+                <option value="16000">1시간 20분 (16,000원)</option>
+                <option value="18000">1시간 30분 (18,000원)</option>
+                <option value="20000">1시간 40분 (20,000원)</option>
+                <option value="22000">1시간 50분 (22,000원)</option>
+                <option value="24000">2시간 (24,000원)</option>
+                <option value="26000">2시간 10분 (26,000원)</option>
+                <option value="28000">2시간 20분 (28,000원)</option>
+                <option value="30000">2시간 30분 (30,000원)</option>
+              </select>
+              <p class="note-text">보통 전공서적 1~3권 당 30분 정도 소요됩니다.</p>
+            </div>
+
+            <div class="calc-group">
+              <label for="ocr-pages">OCR 문자인식 (총 페이지 수)</label>
+              <input type="number" id="ocr-pages" min="0" value="0" placeholder="예: 350" oninput="calculateScan()">
+              <p class="note-text">페이지 수를 입력하면 100페이지 단위로 올림되어 자동 계산됩니다. (예: 150쪽 = 200쪽 요금)</p>
+            </div>
+            <div class="calc-group">
+              <label for="ocr-lang">OCR 언어 선택</label>
+              <select id="ocr-lang" onchange="calculateScan()">
+                <option value="500">한글 + 영어 (100페이지 당 500원)</option>
+                <option value="700">기타 언어 (100페이지 당 700원)</option>
+              </select>
+            </div>
+
+            <div class="result-box">
+              <h3>예상 결제 금액</h3>
+              <div class="result-amount"><span id="scan-total">10,000</span>원</div>
+              <p class="note-text">* 실제 가격은 현장 상황이나 소요 시간에 따라 달라질 수 있습니다.</p>
+            </div>
+          </div>
+
+          <!-- 대형 출력 계산기 -->
+          <div id="poster-calc" class="calc-form hidden">
+            <div class="calc-group">
+              <label for="poster-type">용지 및 사이즈</label>
+              <select id="poster-type" onchange="calculatePoster()">
+                <option value="7000">백상지 A2 사이즈 (7,000원)</option>
+                <option value="13000">백상지 A1 사이즈 (13,000원)</option>
+                <option value="14000">포스터 용지 A2 사이즈 (14,000원)</option>
+                <option value="26000">포스터 용지 A1 사이즈 (26,000원)</option>
+              </select>
+            </div>
+            <div class="calc-group">
+              <label for="poster-copies">수량 (장)</label>
+              <input type="number" id="poster-copies" min="1" value="1" oninput="calculatePoster()">
+            </div>
+
+            <div class="result-box">
+              <h3>예상 결제 금액</h3>
+              <div class="result-amount"><span id="poster-total">7,000</span>원</div>
+              <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2026 스캔데이 왕십리점 셀프 북스캔 & 제본. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.calc-form').forEach(form => form.classList.add('hidden'));
+
+      if (tab === 'print') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('print-calc').classList.remove('hidden');
+        calculatePrint();
+      } else if (tab === 'scan') {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('scan-calc').classList.remove('hidden');
+        calculateScan();
+      } else if (tab === 'poster') {
+        document.querySelectorAll('.tab-btn')[2].classList.add('active');
+        document.getElementById('poster-calc').classList.remove('hidden');
+        calculatePoster();
+      }
+    }
+
+    function calculatePrint() {
+      const pricePerPage = parseInt(document.getElementById('print-type').value) || 0;
+      const pages = parseInt(document.getElementById('print-pages').value) || 0;
+      const needBinding = document.getElementById('need-binding').checked;
+      const copies = parseInt(document.getElementById('print-copies').value) || 0;
+
+      const bindingPrice = needBinding ? 3000 : 0;
+      
+      // ((페이지당 가격 * 페이지수) + 제본가격) * 권수
+      const total = ((pricePerPage * pages) + bindingPrice) * copies;
+      
+      document.getElementById('print-total').innerText = total.toLocaleString();
+    }
+
+    function calculateScan() {
+      const cuttingCopies = parseInt(document.getElementById('scan-cutting-copies').value) || 0;
+      const bindingCopies = parseInt(document.getElementById('scan-binding-copies').value) || 0;
+      const scanPrice = parseInt(document.getElementById('scan-time').value) || 0;
+
+      const ocrPages = parseInt(document.getElementById('ocr-pages').value) || 0;
+      const ocrPricePer100 = parseInt(document.getElementById('ocr-lang').value) || 500;
+
+      const cuttingPrice = 1000;
+      const bindingPrice = 3000;
+
+      const ocrPrice = Math.ceil(ocrPages / 100) * ocrPricePer100;
+
+      const total = (cuttingPrice * cuttingCopies) + (bindingPrice * bindingCopies) + scanPrice + ocrPrice;
+
+      document.getElementById('scan-total').innerText = total.toLocaleString();
+    }
+
+    function calculatePoster() {
+      const price = parseInt(document.getElementById('poster-type').value) || 0;
+      const copies = parseInt(document.getElementById('poster-copies').value) || 0;
+      const total = price * copies;
+      document.getElementById('poster-total').innerText = total.toLocaleString();
+    }
+
+    // Initialize
+    calculatePrint();
+    calculateScan();
+    calculatePoster();
+  </script>
+</body>
+</html>
