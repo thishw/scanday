@@ -130,7 +130,7 @@
       "@type": "Offer",
       "itemOffered": {
        "@type": "Service",
-       "name": "북스캔 복원 제본 (스프링)"
+       "name": "북스캔 복원 제본"
       },
       "price": "3000",
       "priceCurrency": "KRW"
@@ -149,7 +149,7 @@
       "itemOffered": {
        "@type": "Service",
        "name": "일반 인쇄 및 출력물 제본 패키지",
-       "description": "왕십리 1등 가성비! 흑백 인쇄 50원 및 전문가 스프링 제본 3,000원"
+       "description": "파일 인쇄 시 흑백 인쇄 장당 50원 누적 후 제본비 3000원 추가 방식으로 요금이 계산됩니다."
       },
       "price": "50",
       "priceCurrency": "KRW"
@@ -302,6 +302,16 @@
           "@type": "Answer",
           "@id": "https://scanday.kr/#faq-a10",
           "text": "스캔데이의 'AI 복원 + OCR' 옵션을 추가해 보세요! 단순 텍스트 검색 기능을 넘어, 글로벌 1위 엔진이 삐뚤어진 페이지 자동 수평 보정, 어두운 배경 백색화, 노이즈 제거를 수행하여 타사와 비교 불가능한 압도적인 E-book 화질을 완성합니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "@id": "https://scanday.kr/#faq-q11",
+        "name": "제본할 때 페이지당 가격은 얼마인가요? (인쇄 제본 vs 북스캔 제본)",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "@id": "https://scanday.kr/#faq-a11",
+          "text": "스캔데이의 제본은 방문 목적에 따라 2가지로 나뉩니다. 1) 북스캔 후 복원 제본: 페이지 수와 무관하게 1권당 3,000원 고정입니다. 2) 파일 인쇄 후 제본: [페이지당 흑백 인쇄비 50원] + [1권당 제본비 3,000원]이 합산되는 구조입니다. (예: 100페이지 인쇄 제본 시 인쇄비 5,000원 + 제본비 3,000원 = 총 8,000원)"
         }
       }
     ]
@@ -624,7 +634,7 @@
                   <td class="pricing-price price-scan">1,000원</td>
                 </tr>
                 <tr class="item-row">
-                  <td>북스캔 복원 제본 (스프링)</td>
+                  <td>북스캔 복원 제본</td>
                   <td class="pricing-price price-scan">3,000원</td>
                 </tr>
                 <tr class="item-row">
@@ -669,7 +679,7 @@
                   <td class="pricing-price price-print">500원</td>
                 </tr>
                 <tr class="item-row" style="background-color: #f8f9fa;">
-                  <td>출력물 제본 (전문가 스프링 제본)</td>
+                  <td>출력물 인쇄 제본 (+ 페이지당 출력비)</td>
                   <td class="pricing-price price-print">3,000원</td>
                 </tr>
 
@@ -846,6 +856,10 @@
           <div class="faq-item">
             <div class="faq-question">Q: 스캔본 화질을 더욱 깨끗하게 높이는 꿀팁이 있나요?</div>
             <div class="faq-answer">A: 스캔데이의 <strong>'AI 복원 + OCR'</strong> 옵션을 추가해 보세요! 단순 텍스트 검색 기능을 넘어, 글로벌 1위 엔진이 삐뚤어진 페이지 자동 수평 보정(Deskew), 어두운 배경 백색화, 노이즈 제거를 수행하여 타사와 비교 불가능한 압도적인 E-book 화질을 완성합니다.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question">Q: 제본할 때 페이지당 가격은 얼마인가요? (인쇄 제본 vs 북스캔 제본)</div>
+            <div class="faq-answer">A: 스캔데이의 제본은 2가지입니다. <br>1) <strong>북스캔 복원 제본</strong>: 페이지 수 무관 1권당 3,000원 고정가. <br>2) <strong>인쇄 출력물 제본</strong>: <strong>[페이지당 인쇄비 50원] + [권당 제본비 3,000원]</strong>이 합산됩니다. (예: 100페이지 출력 시 인쇄비 5,000원 + 제본비 3,000원 = 총 8,000원)</div>
           </div>
         </div>
       </div>
