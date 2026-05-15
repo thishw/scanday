@@ -168,9 +168,9 @@
 
         <div class="calculator-card">
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('print')">출력 및 제본</button>
-            <button class="tab-btn" onclick="switchTab('scan')">셀프 북스캔</button>
-            <button class="tab-btn" onclick="switchTab('poster')">대형출력 / 포스터</button>
+            <button class="tab-btn active" onclick="switchTab('print')">인쇄 및 제본</button>
+            <button class="tab-btn" onclick="switchTab('scan')">북스캔 패키지</button>
+            <button class="tab-btn" onclick="switchTab('poster')">포스터 및 대형 출력</button>
           </div>
 
           <!-- 출력 및 제본 계산기 -->
@@ -189,7 +189,7 @@
             <div class="calc-group">
               <label class="checkbox-label">
                 <input type="checkbox" id="need-binding" checked onchange="calculatePrint()">
-                스프링 제본 추가 (권당 3,000원)
+                출력물 제본 추가 (권당 3,000원)
               </label>
             </div>
             <div class="calc-group">
@@ -211,7 +211,7 @@
               <input type="number" id="scan-cutting-copies" min="0" value="1" oninput="calculateScan()">
             </div>
             <div class="calc-group">
-              <label for="scan-binding-copies">제본(복원) 권수 (3,000원/권)</label>
+              <label for="scan-binding-copies">북스캔 복원 제본 권수 (3,000원/권)</label>
               <input type="number" id="scan-binding-copies" min="0" value="1" oninput="calculateScan()">
             </div>
             <div class="calc-group">
@@ -235,15 +235,15 @@
             </div>
 
             <div class="calc-group">
-              <label for="ocr-pages">OCR 문자인식 (총 페이지 수)</label>
+              <label for="ocr-pages">AI 복원 + OCR 문자인식 (총 페이지 수)</label>
               <input type="number" id="ocr-pages" min="0" value="0" placeholder="예: 350" oninput="calculateScan()">
               <p class="note-text">페이지 수를 입력하면 100페이지 단위로 올림되어 자동 계산됩니다. (예: 150쪽 = 200쪽 요금)</p>
             </div>
             <div class="calc-group">
-              <label for="ocr-lang">OCR 언어 선택</label>
+              <label for="ocr-lang">AI 복원 + OCR 언어 선택</label>
               <select id="ocr-lang" onchange="calculateScan()">
-                <option value="500">한글 + 영어 (100페이지 당 500원)</option>
-                <option value="700">기타 언어 (100페이지 당 700원)</option>
+                <option value="500">AI 복원 + 한/영 (100페이지 당 500원)</option>
+                <option value="700">AI 복원 + 기타 다국어 (100페이지 당 700원)</option>
               </select>
             </div>
 
