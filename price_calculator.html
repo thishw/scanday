@@ -46,7 +46,7 @@
   }
   </script>
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+  <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="style/style.css?v=4.0">
   <style>
     .calculator-section {
@@ -178,8 +178,12 @@
             <div class="calc-group">
               <label for="print-type">인쇄 방식</label>
               <select id="print-type" onchange="calculatePrint()">
-                <option value="50">흑백 (페이지당 50원)</option>
-                <option value="250">컬러 레이저 (페이지당 250원)</option>
+                <option value="50">A4 흑백 인쇄 (페이지당 50원)</option>
+                <option value="100">A4 컬러 잉크젯 (페이지당 100원)</option>
+                <option value="250">A4 컬러 레이저 (페이지당 250원)</option>
+                <option value="100">A3 흑백 인쇄 (페이지당 100원)</option>
+                <option value="200">A3 컬러 잉크젯 (페이지당 200원)</option>
+                <option value="500">A3 컬러 레이저 (페이지당 500원)</option>
               </select>
             </div>
             <div class="calc-group">
@@ -189,7 +193,7 @@
             <div class="calc-group">
               <label class="checkbox-label">
                 <input type="checkbox" id="need-binding" checked onchange="calculatePrint()">
-                출력물 인쇄 제본 추가 (권당 3,000원)
+                출력물 스프링 제본 추가 (권당 3,000원)
               </label>
             </div>
             <div class="calc-group">
@@ -207,17 +211,17 @@
           <!-- 북스캔 계산기 -->
           <div id="scan-calc" class="calc-form hidden">
             <div class="calc-group">
-              <label for="scan-cutting-copies">재단 권수 (1,000원/권)</label>
+              <label for="scan-cutting-copies">책 재단 권수 (1,000원/권)</label>
               <input type="number" id="scan-cutting-copies" min="0" value="1" oninput="calculateScan()">
             </div>
             <div class="calc-group">
-              <label for="scan-binding-copies">북스캔 복원 제본 권수 (3,000원/권)</label>
+              <label for="scan-binding-copies">스프링 복원 제본 권수 (3,000원/권)</label>
               <input type="number" id="scan-binding-copies" min="0" value="1" oninput="calculateScan()">
             </div>
             <div class="calc-group">
-              <label for="scan-time">예상 스캔 시간 (최소 30분, 이후 10분 단위)</label>
+              <label for="scan-time">북스캔 예상 시간 (최소 30분, 이후 10분 단위)</label>
               <select id="scan-time" onchange="calculateScan()">
-                <option value="6000">30분 (6,000원)</option>
+                <option value="6000">북스캔 기본 30분 (최대 10권) (6,000원)</option>
                 <option value="8000">40분 (8,000원)</option>
                 <option value="10000">50분 (10,000원)</option>
                 <option value="12000">1시간 (12,000원)</option>
@@ -261,8 +265,8 @@
               <select id="poster-type" onchange="calculatePoster()">
                 <option value="7000">백상지 A2 사이즈 (7,000원)</option>
                 <option value="13000">백상지 A1 사이즈 (13,000원)</option>
-                <option value="14000">포스터 용지 A2 사이즈 (14,000원)</option>
-                <option value="26000">포스터 용지 A1 사이즈 (26,000원)</option>
+                <option value="14000">포스터 A2 사이즈 (14,000원)</option>
+                <option value="26000">포스터 A1 사이즈 (26,000원)</option>
               </select>
             </div>
             <div class="calc-group">
