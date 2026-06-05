@@ -1,3 +1,4 @@
+#DaumWebMasterTool:423c19674f3b3f2b2c08c440e9fabb955463594169152f52d3df255bacb2a32a:PZqG6UL2vLirDo32aV5VyA==
 User-agent: *
 Allow: /
 Disallow: /.git/
@@ -6,6 +7,9 @@ Disallow: /marketing_strategy/
 Disallow: /contents/
 
 User-agent: Yeti
+Allow: /
+
+User-agent: Daumoa
 Allow: /
 
 Sitemap: https://scanday.kr/sitemap.xml

@@ -937,15 +937,41 @@ footer {
 .price-scan { color: var(--warning-color) ; } /* Dark Amber/Orange for Yellow category */
 .price-large { color: var(--danger-color) ; } /* Red */
 .price-print { color: #007bff ; } /* Blue */
+.price-b2b { color: var(--naver-green) ; } /* Green */
 
 .pricing-table .category-row td {
-    background: var(--bg-light);
     color: var(--text-dark);
     font-weight: 700;
     font-size: 18px;
     text-align: left;
     border-top: 2px solid #ddd;
     border-bottom: 2px solid #ddd;
+    background: var(--bg-light); /* Fallback */
+}
+
+/* Category Specific Faint Backgrounds */
+.pricing-table .category-row.cat-scan td {
+    background: rgba(217, 119, 6, 0.08); /* --warning-color */
+    border-top-color: rgba(217, 119, 6, 0.2);
+    border-bottom-color: rgba(217, 119, 6, 0.2);
+}
+
+.pricing-table .category-row.cat-print td {
+    background: rgba(0, 123, 255, 0.08); /* #007bff */
+    border-top-color: rgba(0, 123, 255, 0.2);
+    border-bottom-color: rgba(0, 123, 255, 0.2);
+}
+
+.pricing-table .category-row.cat-large td {
+    background: rgba(220, 38, 38, 0.08); /* --danger-color */
+    border-top-color: rgba(220, 38, 38, 0.2);
+    border-bottom-color: rgba(220, 38, 38, 0.2);
+}
+
+.pricing-table .category-row.cat-b2b td {
+    background: rgba(3, 199, 90, 0.08); /* --naver-green */
+    border-top-color: rgba(3, 199, 90, 0.2);
+    border-bottom-color: rgba(3, 199, 90, 0.2);
 }
 
 .pricing-table tr.item-row:nth-child(even) td {
@@ -1384,5 +1410,25 @@ footer {
 }
 .back-link:hover span {
     transform: translateX(-5px);
+}
+
+/* Footer Semantic Address */
+.footer-address {
+    font-style: normal;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.footer-tel {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.footer-tel:hover {
+    color: var(--primary-color);
 }
 
