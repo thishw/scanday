@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
 
 :root {
     --primary-gradient: linear-gradient(135deg, #007bff 0%, #00d2ff 100%);
@@ -589,7 +589,7 @@ section {
     margin: 0 auto 20px;
 }
 
-.res-step-box h4 {
+.res-step-box h3, .res-step-box h4 {
     font-size: 18px;
     margin-bottom: 10px;
     color: var(--text-dark);
