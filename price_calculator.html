@@ -155,6 +155,7 @@
       <ul class="nav-links">
         <li><a href="index.html">메인으로 돌아가기</a></li>
       </ul>
+      <a href="https://map.naver.com/p/search/%EC%8A%A4%EC%BA%94%EB%8D%B0%EC%9D%B4%20%EC%99%95%EC%8B%AD%EB%A6%AC%EC%A0%90" class="nav-cta" target="_blank" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="calc_header">예약하기</a>
     </div>
   </header>
 
@@ -167,16 +168,14 @@
         </div>
 
         <div style="text-align: left; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-          <a href="index.html" class="back-link">
-            <span>←</span> 스캔데이 홈으로 돌아가기
-          </a>
+          <a href="index.html" class="btn-pill" style="margin-bottom:20px; display:inline-block;" data-track="click" data-category="navigation" data-action="go_home" data-label="price_calculator">&larr; 홈으로 돌아가기</a>
         </div>
 
         <div class="calculator-card">
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('print')">인쇄 및 제본</button>
-            <button class="tab-btn" onclick="switchTab('scan')">북스캔 패키지</button>
-            <button class="tab-btn" onclick="switchTab('poster')">포스터 및 대형 출력</button>
+            <button class="tab-btn active" onclick="switchTab('print')" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</button>
+            <button class="tab-btn" onclick="switchTab('scan')" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</button>
+            <button class="tab-btn" onclick="switchTab('poster')" data-track="click" data-category="interaction" data-action="calc_tab_poster" data-label="price_calculator">포스터 및 대형 출력</button>
           </div>
 
           <!-- 출력 및 제본 계산기 -->

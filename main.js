@@ -56,4 +56,18 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
         });
     }
+    
+    // Universal DataLayer Event Delegation Tracking
+    document.addEventListener('click', function(e) {
+        const trackElement = e.target.closest('[data-track]');
+        if (!trackElement) return;
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'user_interaction',
+            track_category: trackElement.getAttribute('data-category') || 'general',
+            track_action: trackElement.getAttribute('data-action') || 'click',
+            track_label: trackElement.getAttribute('data-label') || trackElement.innerText.trim()
+        });
+    });
 });
