@@ -57,17 +57,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Universal DataLayer Event Delegation Tracking
+    // Auto-Tracking: Event Delegation for All Links and Buttons
     document.addEventListener('click', function(e) {
-        const trackElement = e.target.closest('[data-track]');
+        const trackElement = e.target.closest('a, button, [data-track]');
         if (!trackElement) return;
+
+        let category = 'interaction';
+        let action = 'click';
+        let label = trackElement.innerText.trim() || trackElement.getAttribute('aria-label') || trackElement.id || 'unknown';
+
+        const hasExplicitTrack = trackElement.hasAttribute('data-track');
+
+        if (hasExplicitTrack) {
+            // Respect explicit tags first
+            category = trackElement.getAttribute('data-category') || category;
+            action = trackElement.getAttribute('data-action') || action;
+            label = trackElement.getAttribute('data-label') || label;
+        } else {
+            // Auto-infer for untagged elements
+            const tagName = trackElement.tagName.toLowerCase();
+            if (tagName === 'a') {
+                category = 'navigation';
+                action = 'click_link';
+                const href = trackElement.getAttribute('href');
+                if (href) label += ` (${href})`;
+            } else if (tagName === 'button') {
+                category = 'interaction';
+                action = 'click_button';
+            }
+        }
 
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
             event: 'user_interaction',
-            track_category: trackElement.getAttribute('data-category') || 'general',
-            track_action: trackElement.getAttribute('data-action') || 'click',
-            track_label: trackElement.getAttribute('data-label') || trackElement.innerText.trim()
+            track_category: category,
+            track_action: action,
+            track_label: label
         });
     });
 });
