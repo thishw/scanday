@@ -14,20 +14,20 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>최저가 스캔·출력 가격 계산기 | 스캔데이 왕십리점 (북스캔, 제본, 포스터)</title>
-  <meta name="description" content="왕십리역, 한양대 앞 최저가 보장 북스캔 및 출력 전문점 스캔데이. 흑백 인쇄 50원, 북스캔 30분에 6,000원! 방문 전 예상 결제 금액을 미리 계산해 보세요. 대형 출력, 포스터, 분철 제본까지 합리적인 가격에 제공합니다.">
+  <title>스캔·출력 예상 가격 계산기 | 스캔데이 왕십리점 (북스캔, 제본, 포스터)</title>
+  <meta name="description" content="왕십리역, 한양대 앞 셀프 북스캔 및 출력 전문점 스캔데이. 흑백 인쇄 50원, 북스캔 30분에 6,000원! 방문 전 예상 결제 금액을 미리 계산해 보세요. 대형 출력, 포스터, 분철 제본까지 합리적인 가격에 제공합니다.">
   <meta name="keywords" content="스캔데이 가격, 왕십리 북스캔 가격, 한양대 인쇄소 가격, 북스캔 계산기, 제본 가격 계산, 포스터 출력 비용">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://scanday.kr/price_calculator.html">
-  
+
   <meta property="og:title" content="스캔데이 왕십리점 | 북스캔 및 출력 가격 계산기">
   <meta property="og:description" content="흑백 50원, 북스캔 6,000원부터! 방문 전 나의 예상 결제 금액을 투명하게 확인해 보세요.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://scanday.kr/price_calculator.html">
-  
+
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="스캔데이 왕십리점 | 가격 계산기">
-  <meta name="twitter:description" content="왕십리/한양대 1등 북스캔. 저렴한 가격을 직접 계산해 보세요!">
+  <meta name="twitter:description" content="왕십리/한양대 셀프 북스캔. 저렴한 가격을 직접 계산해 보세요!">
 
   <!-- 구조화 데이터 (JSON-LD) -->
   <script type="application/ld+json">
@@ -46,16 +46,16 @@
   }
   </script>
 
-  <link rel="icon" href="assets/favicon.png">
-  
+  <link rel="icon" href="assets/favicon-64.png">
+
   <!-- Google Fonts 최적화 로딩 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style/style.css?v=4.0">
+  <link rel="stylesheet" href="style/style.css?v=20261001-4">
   <style>
-    .calculator-header {
+    .calculator-header, .calculator-header.scrolled {
       position: sticky;
       padding: 16px 0;
       background: #fff;
@@ -178,7 +178,7 @@
       margin-top: 5px;
     }
     @media (max-width: 600px) {
-      .calculator-header {
+      .calculator-header, .calculator-header.scrolled {
         padding: 12px 0;
       }
       .calculator-nav,
@@ -240,7 +240,7 @@
       <a href="index.html" class="logo">SCANDAY 왕십리점</a>
       <div class="calculator-nav-actions">
       <a href="index.html" class="calculator-home" aria-label="홈으로 돌아가기" data-track="click" data-category="navigation" data-action="go_home" data-label="price_calculator">홈</a>
-      <a href="https://map.naver.com/p/search/%EC%8A%A4%EC%BA%94%EB%8D%B0%EC%9D%B4%20%EC%99%95%EC%8B%AD%EB%A6%AC%EC%A0%90" class="nav-cta" target="_blank" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="calc_header">예약하기</a>
+      <a href="https://map.naver.com/p/entry/place/1081628388?placePath=/ticket" class="nav-cta" target="_blank" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="calc_header" rel="noopener noreferrer">예약하기</a>
       </div>
     </nav>
   </header>
@@ -249,19 +249,20 @@
     <section class="calculator-section">
       <div class="container">
         <div class="section-head text-center">
-          <h2>예상 가격 계산기</h2>
+          <h1>예상 가격 계산기</h1>
           <p>스캔 및 출력/제본 서비스의 예상 비용을 미리 계산해 보세요.</p>
         </div>
 
         <div class="calculator-card">
-          <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab('print')" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</button>
-            <button class="tab-btn" onclick="switchTab('scan')" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</button>
-            <button class="tab-btn" onclick="switchTab('poster')" data-track="click" data-category="interaction" data-action="calc_tab_poster" data-label="price_calculator">포스터 및 대형 출력</button>
+          <noscript><p>가격 계산에는 JavaScript가 필요합니다. <a href="index.html#pricing">전체 가격표</a>를 확인하거나 <a href="tel:050713655415">0507-1365-5415</a>로 문의해 주세요.</p></noscript>
+          <div class="tabs" role="tablist" aria-label="계산할 서비스">
+            <button type="button" id="print-tab" role="tab" aria-controls="print-calc" aria-selected="true" class="tab-btn active" onclick="switchTab('print')" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</button>
+            <button type="button" id="scan-tab" role="tab" aria-controls="scan-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('scan')" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</button>
+            <button type="button" id="poster-tab" role="tab" aria-controls="poster-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('poster')" data-track="click" data-category="interaction" data-action="calc_tab_poster" data-label="price_calculator">포스터 및 대형 출력</button>
           </div>
 
           <!-- 출력 및 제본 계산기 -->
-          <div id="print-calc" class="calc-form">
+          <div id="print-calc" class="calc-form" role="tabpanel" aria-labelledby="print-tab">
             <div class="calc-group">
               <label for="print-type">인쇄 방식</label>
               <select id="print-type" onchange="calculatePrint()">
@@ -296,7 +297,7 @@
           </div>
 
           <!-- 북스캔 계산기 -->
-          <div id="scan-calc" class="calc-form hidden">
+          <div id="scan-calc" class="calc-form hidden" role="tabpanel" aria-labelledby="scan-tab">
             <div class="calc-group">
               <label for="scan-cutting-copies">책 재단 권수 (1,000원/권)</label>
               <input type="number" id="scan-cutting-copies" min="0" value="1" oninput="calculateScan()">
@@ -346,7 +347,7 @@
           </div>
 
           <!-- 대형 출력 계산기 -->
-          <div id="poster-calc" class="calc-form hidden">
+          <div id="poster-calc" class="calc-form hidden" role="tabpanel" aria-labelledby="poster-tab">
             <div class="calc-group">
               <label for="poster-type">용지 및 사이즈</label>
               <select id="poster-type" onchange="calculatePoster()">
@@ -377,11 +378,22 @@
       <p>&copy; 2026 스캔데이 왕십리점 셀프 북스캔 & 제본. All Rights Reserved.</p>
     </div>
     <div style="text-align:center; padding-bottom:10px;"><a href="/privacy-policy.html" style="font-weight:bold; color:#666;">개인정보처리방침</a></div>
+<address class="site-footer-address">
+      <strong>스캔데이 왕십리점</strong> · 서울특별시 성동구 마조로 21, 1층<br>
+      <a href="tel:050713655415">0507-1365-5415</a> · <a href="https://map.naver.com/p/entry/place/1081628388" target="_blank" rel="noopener noreferrer">네이버 지도</a><br>
+      월·화·수·금 12:00–20:00 / 목·일 10:00–16:00 / 토 12:00–19:00<br>
+      공휴일은 대체로 휴무입니다. 공휴일별 운영 여부는 네이버 공지 또는 전화로 확인해 주세요.
+    </address>
 </footer>
 
   <script>
     function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        const selected = btn.id === tab + '-tab';
+        btn.classList.toggle('active', selected);
+        btn.setAttribute('aria-selected', String(selected));
+        btn.tabIndex = selected ? 0 : -1;
+      });
       document.querySelectorAll('.calc-form').forEach(form => form.classList.add('hidden'));
 
       if (tab === 'print') {
@@ -399,6 +411,35 @@
       }
     }
 
+    document.querySelector('.tabs').addEventListener('keydown', event => {
+      const tabs = Array.from(document.querySelectorAll('.tab-btn'));
+      let index = tabs.indexOf(document.activeElement);
+      if (index < 0) return;
+      if (event.key === 'ArrowRight') index = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') index = (index + tabs.length - 1) % tabs.length;
+      else if (event.key === 'Home') index = 0;
+      else if (event.key === 'End') index = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      tabs[index].focus();
+      tabs[index].click();
+    });
+
+    function displayTotal(service, total) {
+      const panel = document.getElementById(service + '-calc');
+      const inputs = Array.from(panel.querySelectorAll('input[type="number"]'));
+      let valid = true;
+      inputs.forEach(input => {
+        const value = input.valueAsNumber;
+        const fieldValid = Number.isSafeInteger(value) && value >= Number(input.min);
+        input.setAttribute('aria-invalid', String(!fieldValid));
+        valid = valid && fieldValid;
+      });
+      valid = valid && Number.isSafeInteger(total) && total >= 0;
+      document.getElementById(service + '-total').textContent = valid ? total.toLocaleString() : '—';
+      panel.querySelector('.calculation-error').textContent = valid ? '' : '수량과 페이지 수를 입력란의 최소값 이상인 정수로 입력해 주세요.';
+    }
+
     function calculatePrint() {
       const pricePerPage = parseInt(document.getElementById('print-type').value) || 0;
       const pages = parseInt(document.getElementById('print-pages').value) || 0;
@@ -406,11 +447,11 @@
       const copies = parseInt(document.getElementById('print-copies').value) || 0;
 
       const bindingPrice = needBinding ? 3000 : 0;
-      
+
       // ((페이지당 가격 * 페이지수) + 제본가격) * 권수
       const total = ((pricePerPage * pages) + bindingPrice) * copies;
-      
-      document.getElementById('print-total').innerText = total.toLocaleString();
+
+      displayTotal('print', total);
     }
 
     function calculateScan() {
@@ -428,20 +469,35 @@
 
       const total = (cuttingPrice * cuttingCopies) + (bindingPrice * bindingCopies) + scanPrice + ocrPrice;
 
-      document.getElementById('scan-total').innerText = total.toLocaleString();
+      displayTotal('scan', total);
     }
 
     function calculatePoster() {
       const price = parseInt(document.getElementById('poster-type').value) || 0;
       const copies = parseInt(document.getElementById('poster-copies').value) || 0;
       const total = price * copies;
-      document.getElementById('poster-total').innerText = total.toLocaleString();
+      displayTotal('poster', total);
     }
 
     // Initialize
+    document.querySelectorAll('.calc-form').forEach(panel => {
+      const error = document.createElement('p');
+      error.id = panel.id + '-error';
+      error.className = 'calculation-error';
+      error.setAttribute('role', 'status');
+      panel.querySelector('.result-box').appendChild(error);
+      panel.querySelector('.result-amount').setAttribute('aria-live', 'polite');
+      panel.querySelector('.result-amount').setAttribute('aria-atomic', 'true');
+      panel.querySelectorAll('input[type="number"]').forEach(input => {
+        input.required = true;
+        input.step = '1';
+        input.setAttribute('aria-describedby', error.id);
+      });
+    });
     calculatePrint();
     calculateScan();
     calculatePoster();
   </script>
+  <script src="main.js?v=20261001-4" defer></script>
 </body>
 </html>

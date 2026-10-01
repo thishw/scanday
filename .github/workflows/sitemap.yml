@@ -6,6 +6,10 @@ on:
       - main
     paths:
       - '**.html'
+      - 'scripts/generate_sitemap.py'
+      - 'generate_rss.py'
+      - 'scripts/audit_site.py'
+      - '.github/workflows/sitemap.yml'
 
 jobs:
   sitemap:
@@ -27,8 +31,14 @@ jobs:
       - name: Generate Sitemap
         run: python scripts/generate_sitemap.py
 
+      - name: Generate RSS
+        run: python generate_rss.py
+
+      - name: Validate site links and metadata
+        run: python scripts/audit_site.py
+
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "docs: auto-update sitemap"
-          file_pattern: 'sitemap.xml'
+          commit_message: "docs: auto-update sitemap and RSS"
+          file_pattern: 'sitemap.xml rss.xml'

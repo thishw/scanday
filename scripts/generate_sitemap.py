@@ -1,10 +1,22 @@
 import os
 import subprocess
+from html.parser import HTMLParser
 from datetime import datetime
 
 BASE_URL = "https://scanday.kr"
 DIRECTORIES = [".", "blog", "services"]
 EXCLUDE_DIRS = ["private", ".github", ".git", ".agents", "scripts", "assets", "contents", "style", "marketing_strategy"]
+
+
+class IndexingPolicy(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.noindex = False
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        if tag == 'meta' and attrs.get('name', '').lower() == 'robots':
+            self.noindex = 'noindex' in attrs.get('content', '').lower()
 
 def get_git_lastmod(filepath):
     try:
@@ -46,6 +58,11 @@ def generate_sitemap():
                     
                 # Full relative path
                 rel_path = os.path.relpath(os.path.join(root, file), ".")
+                policy = IndexingPolicy()
+                with open(rel_path, encoding="utf-8") as page:
+                    policy.feed(page.read())
+                if policy.noindex:
+                    continue
                 # Clean up path for URL
                 url_path = rel_path.replace("\\", "/")
                 
@@ -67,7 +84,7 @@ def generate_sitemap():
     xml_content = ['<?xml version="1.0" encoding="UTF-8"?>']
     xml_content.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
     
-    for entry in sitemap_entries:
+    for entry in sorted(sitemap_entries, key=lambda entry: entry["loc"]):
         xml_content.append('  <url>')
         xml_content.append(f'    <loc>{entry["loc"]}</loc>')
         xml_content.append(f'    <lastmod>{entry["lastmod"]}</lastmod>')

@@ -63,6 +63,23 @@
 - [MARKETING_STRATEGY.md](./MARKETING_STRATEGY.md): 브랜드 포지셔닝 및 마케팅 전략 가이드.
 - `.keys/`: 배포 및 보안 관련 키 보관 (비공개 권장).
 
+## 5. 배포 전 검증
+
+```powershell
+python scripts/generate_sitemap.py
+python generate_rss.py
+python scripts/audit_site.py
+node --check main.js
+```
+
+- `audit_site.py`는 공개 HTML의 내부 링크·앵커, 대표 URL(canonical), 제목 구조, JSON-LD 문법, 이미지 대체텍스트, 사이트맵·RSS 동기화를 검사합니다.
+- `naver_price_cards.html`은 이미지 제작용 템플릿으로 `noindex` 처리하며 사이트맵에서 제외합니다.
+- HTML 변경 시 GitHub Actions가 사이트맵과 RSS를 갱신하고 검증합니다.
+- 공통 메뉴는 1100px 이하에서 펼침 메뉴로 바뀝니다. 모바일 수정 시 320px, 390px, 768px 및 데스크톱에서 확인합니다.
+- 확정된 대표전화·영업시간·공휴일 정책은 `project_context.md`를 기준으로 본문과 구조화 데이터를 함께 관리합니다.
+- 이미지 원본을 추가하면 Pillow가 설치된 Python에서 `python scripts/optimize_images.py`로 WebP 본문용·480px 카드용 이미지를 생성합니다. 생성 파일을 커밋하므로 배포 서버에서 Pillow는 필요하지 않습니다.
+- 클릭 추적은 기존 `user_interaction` 이벤트를 유지합니다. `track_action`의 `reserve_naver`, `call_store`, `view_directions`, `open_calculator`로 예약·전화·길찾기·계산기 진입을 구분합니다. 실제 예약 완료와 클릭은 별개의 지표입니다.
+
 ---
 
-**최종 업데이트:** 2026-04-29 (Antigravity AI)
+**최종 업데이트:** 2026-10-01

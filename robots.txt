@@ -6,10 +6,4 @@ Disallow: /.keys/
 Disallow: /marketing_strategy/
 Disallow: /contents/
 
-User-agent: Yeti
-Allow: /
-
-User-agent: Daumoa
-Allow: /
-
 Sitemap: https://scanday.kr/sitemap.xml
