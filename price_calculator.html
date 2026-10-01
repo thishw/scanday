@@ -55,10 +55,46 @@
 
   <link rel="stylesheet" href="style/style.css?v=4.0">
   <style>
+    .calculator-header {
+      position: sticky;
+      padding: 16px 0;
+      background: #fff;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .calculator-nav {
+      gap: 16px;
+    }
+    .calculator-nav .logo {
+      order: 0;
+    }
+    .calculator-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .calculator-home {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .calculator-nav .nav-cta {
+      margin-left: 0;
+      min-height: 44px;
+    }
+    .calculator-nav a:focus-visible,
+    .tab-btn:focus-visible {
+      outline: 3px solid #007bff;
+      outline-offset: 4px;
+    }
     .calculator-section {
-      padding: 100px 0 60px;
+      padding: 48px 0 60px;
       background-color: #f8f9fa;
       min-height: 80vh;
+    }
+    .calculator-section .section-head {
+      margin-bottom: 32px;
     }
     .calculator-card {
       background: #fff;
@@ -141,6 +177,52 @@
       color: #6c757d;
       margin-top: 5px;
     }
+    @media (max-width: 600px) {
+      .calculator-header {
+        padding: 12px 0;
+      }
+      .calculator-nav,
+      .calculator-section > .container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .calculator-nav .logo {
+        font-size: 16px;
+      }
+      .calculator-nav,
+      .calculator-nav-actions {
+        gap: 12px;
+      }
+      .calculator-home {
+        font-size: 14px;
+      }
+      .calculator-nav .nav-cta {
+        padding: 10px 14px;
+      }
+      .calculator-section {
+        padding-top: 32px;
+      }
+      .calculator-section .section-head h2 {
+        font-size: 28px;
+      }
+      .calculator-section .section-head p {
+        font-size: 14px;
+      }
+      .calculator-card {
+        padding: 24px 16px;
+      }
+      .tabs {
+        gap: 6px;
+        margin-bottom: 24px;
+      }
+      .tab-btn {
+        min-width: 0;
+        min-height: 48px;
+        padding: 10px 6px;
+        font-family: inherit;
+        word-break: keep-all;
+      }
+    }
   </style>
 
   <!-- Google AdSense -->
@@ -153,14 +235,14 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M69D54BW" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <header id="header">
-    <div class="container nav">
+  <header id="header" class="calculator-header">
+    <nav class="container calculator-nav" aria-label="주 메뉴">
       <a href="index.html" class="logo">SCANDAY 왕십리점</a>
-      <ul class="nav-links">
-        <li><a href="index.html">메인으로 돌아가기</a></li>
-      </ul>
+      <div class="calculator-nav-actions">
+      <a href="index.html" class="calculator-home" aria-label="홈으로 돌아가기" data-track="click" data-category="navigation" data-action="go_home" data-label="price_calculator">홈</a>
       <a href="https://map.naver.com/p/search/%EC%8A%A4%EC%BA%94%EB%8D%B0%EC%9D%B4%20%EC%99%95%EC%8B%AD%EB%A6%AC%EC%A0%90" class="nav-cta" target="_blank" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="calc_header">예약하기</a>
-    </div>
+      </div>
+    </nav>
   </header>
 
   <main>
@@ -169,10 +251,6 @@
         <div class="section-head text-center">
           <h2>예상 가격 계산기</h2>
           <p>스캔 및 출력/제본 서비스의 예상 비용을 미리 계산해 보세요.</p>
-        </div>
-
-        <div style="text-align: left; margin-bottom: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">
-          <a href="index.html" class="btn-pill" style="margin-bottom:20px; display:inline-block;" data-track="click" data-category="navigation" data-action="go_home" data-label="price_calculator">&larr; 홈으로 돌아가기</a>
         </div>
 
         <div class="calculator-card">
