@@ -1614,7 +1614,7 @@ summary:focus-visible {
 .service-faq details p { margin: 12px 0; color: var(--text-muted); }
 .service-faq > p { margin-top: 24px; }
 .service-faq a { color: #005fcc; text-decoration: underline; text-underline-offset: 3px; }
-.business-hours { margin: 24px 0; padding: 24px; border-radius: 16px; background: #f8fbff; }
+.business-hours { scroll-margin-top: 100px; margin: 24px 0; padding: 24px; border-radius: 16px; background: #f8fbff; }
 .business-hours dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; margin: 16px 0; }
 .business-hours a { color: #005fcc; text-decoration: underline; }
 .calculator-section .section-head h1 { font-size: 42px; margin-bottom: 15px; }

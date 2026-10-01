@@ -53,37 +53,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style/style.css?v=20261001-4">
+  <link rel="stylesheet" href="style/style.css?v=20261001-5">
   <style>
-    .calculator-header, .calculator-header.scrolled {
-      position: sticky;
-      padding: 16px 0;
-      background: #fff;
-      border-bottom: 1px solid #e9ecef;
-    }
-    .calculator-nav {
-      gap: 16px;
-    }
-    .calculator-nav .logo {
-      order: 0;
-    }
-    .calculator-nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .calculator-home {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .calculator-nav .nav-cta {
-      margin-left: 0;
-      min-height: 44px;
-    }
-    .calculator-nav a:focus-visible,
     .tab-btn:focus-visible {
       outline: 3px solid #007bff;
       outline-offset: 4px;
@@ -178,31 +149,14 @@
       margin-top: 5px;
     }
     @media (max-width: 600px) {
-      .calculator-header, .calculator-header.scrolled {
-        padding: 12px 0;
-      }
-      .calculator-nav,
       .calculator-section > .container {
         padding-left: 16px;
         padding-right: 16px;
       }
-      .calculator-nav .logo {
-        font-size: 16px;
-      }
-      .calculator-nav,
-      .calculator-nav-actions {
-        gap: 12px;
-      }
-      .calculator-home {
-        font-size: 14px;
-      }
-      .calculator-nav .nav-cta {
-        padding: 10px 14px;
-      }
       .calculator-section {
         padding-top: 32px;
       }
-      .calculator-section .section-head h2 {
+      .calculator-section .section-head h1 {
         font-size: 28px;
       }
       .calculator-section .section-head p {
@@ -235,13 +189,22 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M69D54BW" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-  <header id="header" class="calculator-header">
-    <nav class="container calculator-nav" aria-label="주 메뉴">
-      <a href="index.html" class="logo">SCANDAY 왕십리점</a>
-      <div class="calculator-nav-actions">
-      <a href="index.html" class="calculator-home" aria-label="홈으로 돌아가기" data-track="click" data-category="navigation" data-action="go_home" data-label="price_calculator">홈</a>
-      <a href="https://map.naver.com/p/entry/place/1081628388?placePath=/ticket" class="nav-cta" target="_blank" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="calc_header" rel="noopener noreferrer">예약하기</a>
-      </div>
+  <header id="header" class="site-header">
+    <nav class="container site-nav" aria-label="주 메뉴">
+      <a href="index.html" class="logo" aria-label="스캔데이 왕십리점 홈">SCANDAY 왕십리점</a>
+      <button class="menu-toggle" type="button" id="menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#services">서비스 안내</a></li>
+        <li><a href="index.html#pricing">가격 안내</a></li>
+        <li><a href="price_calculator.html">가격 계산기</a></li>
+        <li><a href="blog/">블로그</a></li>
+        <li><a href="index.html#how-it-works">이용 방법</a></li>
+        <li><a href="index.html#business-hours">영업시간</a></li>
+        <li><a href="index.html#contact">오시는 길</a></li>
+      </ul>
+      <a href="https://map.naver.com/p/entry/place/1081628388?placePath=/ticket" class="nav-cta" target="_blank" rel="noopener noreferrer" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="site_header">예약하기</a>
     </nav>
   </header>
 
@@ -498,6 +461,6 @@
     calculateScan();
     calculatePoster();
   </script>
-  <script src="main.js?v=20261001-4" defer></script>
+  <script src="main.js?v=20261001-5" defer></script>
 </body>
 </html>
