@@ -47,7 +47,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style/style.css?v=20261001-5">
+  <link rel="stylesheet" href="style/style.css?v=20261001-6">
 
   <!-- GEO 엔진을 위한 Local Business 구조화 데이터 -->
   <script type="application/ld+json">
@@ -731,11 +731,10 @@
           <div class="pricing-wrapper">
             <table class="pricing-table">
               <caption>스캔·인쇄·제본·대형 출력 기본 요금</caption>
-              <thead><tr><th scope="col">서비스</th><th scope="col">요금</th></tr></thead>
-              <tbody>
+              <tbody class="price-group group-scan">
                 <!-- 카테고리 1: 북스캔 및 스캔 패키지 -->
                 <tr class="category-row cat-scan">
-                  <td colspan="2">북스캔 및 문서 스캔 패키지</td>
+                  <th colspan="2" scope="rowgroup">북스캔 및 문서 스캔 패키지</th>
                 </tr>
                 <tr class="item-row">
                   <td>초고속 북스캔 30분(최대10권)</td>
@@ -766,9 +765,11 @@
                   <td class="pricing-price price-scan">변동가격</td>
                 </tr>
 
+              </tbody>
+              <tbody class="price-group group-print">
                 <!-- 카테고리 2: 인쇄 및 특수지 -->
                 <tr class="category-row cat-print">
-                  <td colspan="2">일반 인쇄 및 특수지 출력</td>
+                  <th colspan="2" scope="rowgroup">일반 인쇄 및 특수지 출력</th>
                 </tr>
                 <tr class="item-row">
                   <td>A4 흑백 인쇄/복사</td>
@@ -799,9 +800,11 @@
                   <td class="pricing-price price-print">변동가격</td>
                 </tr>
 
+              </tbody>
+              <tbody class="price-group group-large">
                 <!-- 카테고리 3: 대형출력 -->
                 <tr class="category-row cat-large">
-                  <td colspan="2">포스터 및 대형 출력</td>
+                  <th colspan="2" scope="rowgroup">포스터 및 대형 출력</th>
                 </tr>
                 <tr class="item-row">
                   <td>A2 대형출력 (백상지/도면)</td>
@@ -824,9 +827,11 @@
                   <td class="pricing-price price-large">변동가격</td>
                 </tr>
 
+              </tbody>
+              <tbody class="price-group group-b2b">
                 <!-- 카테고리 4: 기업 제휴 -->
                 <tr class="category-row cat-b2b">
-                  <td colspan="2">기업 제휴 및 대량 작업 상담</td>
+                  <th colspan="2" scope="rowgroup">기업 제휴 및 대량 작업 상담</th>
                 </tr>
                 <tr class="item-row">
                   <td>기업 제휴 및 대량 작업 상담</td>
@@ -1074,7 +1079,7 @@
     <span>🗓️ 예약하기</span>
   </a>
 
-  <script src="main.js?v=20261001-5" defer></script>
+  <script src="main.js?v=20261001-6" defer></script>
 </body>
 
 </html>

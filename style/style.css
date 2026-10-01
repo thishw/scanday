@@ -912,7 +912,8 @@ footer {
     border-radius: 15px;
     box-shadow: var(--shadow-soft);
     background: white;
-    margin: 30px 0;
+    margin: 30px auto;
+    max-width: 800px;
 }
 
 .pricing-table {
@@ -944,7 +945,7 @@ footer {
 .price-print { color: #007bff ; } /* Blue */
 .price-b2b { color: var(--naver-green) ; } /* Green */
 
-.pricing-table .category-row td {
+.pricing-table .category-row th {
     color: var(--text-dark);
     font-weight: 700;
     font-size: 18px;
@@ -955,25 +956,25 @@ footer {
 }
 
 /* Category Specific Faint Backgrounds */
-.pricing-table .category-row.cat-scan td {
+.pricing-table .category-row.cat-scan th {
     background: rgba(217, 119, 6, 0.08); /* --warning-color */
     border-top-color: rgba(217, 119, 6, 0.2);
     border-bottom-color: rgba(217, 119, 6, 0.2);
 }
 
-.pricing-table .category-row.cat-print td {
+.pricing-table .category-row.cat-print th {
     background: rgba(0, 123, 255, 0.08); /* #007bff */
     border-top-color: rgba(0, 123, 255, 0.2);
     border-bottom-color: rgba(0, 123, 255, 0.2);
 }
 
-.pricing-table .category-row.cat-large td {
+.pricing-table .category-row.cat-large th {
     background: rgba(220, 38, 38, 0.08); /* --danger-color */
     border-top-color: rgba(220, 38, 38, 0.2);
     border-bottom-color: rgba(220, 38, 38, 0.2);
 }
 
-.pricing-table .category-row.cat-b2b td {
+.pricing-table .category-row.cat-b2b th {
     background: rgba(3, 199, 90, 0.08); /* --naver-green */
     border-top-color: rgba(3, 199, 90, 0.2);
     border-bottom-color: rgba(3, 199, 90, 0.2);
@@ -991,6 +992,7 @@ footer {
     border-bottom: none;
 }
 
+.pricing-table caption { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 /* Map Link Card */
 .map-card {
     display: flex;
@@ -1614,8 +1616,12 @@ summary:focus-visible {
 .service-faq details p { margin: 12px 0; color: var(--text-muted); }
 .service-faq > p { margin-top: 24px; }
 .service-faq a { color: #005fcc; text-decoration: underline; text-underline-offset: 3px; }
-.business-hours { scroll-margin-top: 100px; margin: 24px 0; padding: 24px; border-radius: 16px; background: #f8fbff; }
-.business-hours dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 24px; margin: 16px 0; }
+.business-hours { scroll-margin-top: 100px; max-width: 600px; margin: 32px auto; padding: 28px; border: 1px solid #e0e8f0; border-radius: 16px; background: #f8fbff; text-align: left; }
+.business-hours h3 { color: #17324d; font-size: 20px; }
+.business-hours dl { display: grid; grid-template-columns: 1fr auto; gap: 0 24px; margin: 20px 0; }
+.business-hours dt, .business-hours dd { padding: 12px 0; border-bottom: 1px solid #e0e8f0; }
+.business-hours dd { margin: 0; font-weight: 600; color: #17324d; font-variant-numeric: tabular-nums; }
+.business-hours p { font-size: 14px; line-height: 1.8; color: #526477; margin-top: 12px; }
 .business-hours a { color: #005fcc; text-decoration: underline; }
 .calculator-section .section-head h1 { font-size: 42px; margin-bottom: 15px; }
 .result-amount { overflow-wrap: anywhere; }
@@ -1690,11 +1696,11 @@ summary:focus-visible {
     body .privacy-container { padding: 24px 20px; }
     .privacy-container h1 { font-size: 1.65rem; }
     .business-hours { padding: 20px 16px; }
-    .business-hours dl { gap: 8px 16px; }
+    .business-hours dl { gap: 0 16px; }
     .site-footer-address { font-size: 13px; }
     .pricing-table th, .pricing-table td { padding: 12px 10px; font-size: 14px; }
     .pricing-table td.pricing-price { font-size: 15px; }
-    .pricing-table .category-row td { font-size: 16px; }
+    .pricing-table .category-row th { font-size: 16px; padding: 16px; }
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
