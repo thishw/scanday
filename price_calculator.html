@@ -116,6 +116,48 @@
       margin-right: 8px;
       transform: scale(1.2);
     }
+    .print-item + .print-item {
+      border-top: 1px solid #e9ecef;
+      padding-top: 20px;
+    }
+    .print-item-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .print-item-title {
+      font-weight: 700;
+      color: #343a40;
+    }
+    .add-print-item, .remove-print-item {
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      background: #fff;
+      color: #495057;
+      font: inherit;
+      cursor: pointer;
+    }
+    .add-print-item {
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px dashed #007bff;
+      color: #007bff;
+      font-weight: 600;
+    }
+    .add-print-item:hover {
+      background: #eef2ff;
+    }
+    .remove-print-item:hover {
+      background: #f8f9fa;
+    }
+    .add-print-item:focus-visible, .remove-print-item:focus-visible {
+      outline: 3px solid #007bff;
+      outline-offset: 4px;
+    }
     .checkbox-label {
       display: flex !important;
       align-items: center;
@@ -217,7 +259,7 @@
         </div>
 
         <div class="calculator-card">
-          <noscript><p>가격 계산에는 JavaScript가 필요합니다. <a href="index.html#pricing">전체 가격표</a>를 확인하거나 <a href="tel:050713655415">0507-1365-5415</a>로 문의해 주세요.</p></noscript>
+          <noscript><p>가격 계산에는 JavaScript가 필요합니다. <a href="index.html#pricing">전체 가격표</a>를 확인하거나 <a href="tel:050713033463">0507-1303-3463</a>로 문의해 주세요.</p></noscript>
           <div class="tabs" role="tablist" aria-label="계산할 서비스">
             <button type="button" id="print-tab" role="tab" aria-controls="print-calc" aria-selected="true" class="tab-btn active" onclick="switchTab('print')" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</button>
             <button type="button" id="scan-tab" role="tab" aria-controls="scan-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('scan')" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</button>
@@ -226,21 +268,31 @@
 
           <!-- 출력 및 제본 계산기 -->
           <div id="print-calc" class="calc-form" role="tabpanel" aria-labelledby="print-tab">
-            <div class="calc-group">
-              <label for="print-type">인쇄 방식</label>
-              <select id="print-type" onchange="calculatePrint()">
-                <option value="50">A4 흑백 인쇄 (페이지당 50원)</option>
-                <option value="100">A4 컬러 잉크젯 (페이지당 100원)</option>
-                <option value="250">A4 컬러 레이저 (페이지당 250원)</option>
-                <option value="100">A3 흑백 인쇄 (페이지당 100원)</option>
-                <option value="200">A3 컬러 잉크젯 (페이지당 200원)</option>
-                <option value="500">A3 컬러 레이저 (페이지당 500원)</option>
-              </select>
+            <div id="print-items">
+              <div class="print-item" role="group" aria-labelledby="print-item-title-1">
+                <div class="print-item-heading">
+                  <span id="print-item-title-1" class="print-item-title">인쇄 항목 1</span>
+                  <button type="button" class="remove-print-item" hidden onclick="removePrintItem(this)">삭제</button>
+                </div>
+                <div class="calc-group">
+                  <label for="print-type">인쇄 방식</label>
+                  <select id="print-type" class="print-type" onchange="calculatePrint()">
+                    <option value="50">A4 흑백 인쇄 (페이지당 50원)</option>
+                    <option value="100">A4 컬러 잉크젯 (페이지당 100원)</option>
+                    <option value="250">A4 컬러 레이저 (페이지당 250원)</option>
+                    <option value="100">A3 흑백 인쇄 (페이지당 100원)</option>
+                    <option value="200">A3 컬러 잉크젯 (페이지당 200원)</option>
+                    <option value="500">A3 컬러 레이저 (페이지당 500원)</option>
+                  </select>
+                </div>
+                <div class="calc-group">
+                  <label for="print-pages">페이지 수 (1권 기준)</label>
+                  <input type="number" id="print-pages" class="print-pages" min="1" value="100" oninput="calculatePrint()">
+                </div>
+              </div>
             </div>
-            <div class="calc-group">
-              <label for="print-pages">페이지 수 (1권 기준)</label>
-              <input type="number" id="print-pages" min="1" value="100" oninput="calculatePrint()">
-            </div>
+            <button type="button" id="add-print-item" class="add-print-item" aria-controls="print-items" onclick="addPrintItem()"><span aria-hidden="true">+</span> 인쇄 항목 추가</button>
+            <p class="note-text">한 권에 들어갈 인쇄 방식별 페이지 수를 입력해 주세요. 인쇄비를 합산하고 제본비는 권당 한 번만 더합니다.</p>
             <div class="calc-group">
               <label class="checkbox-label">
                 <input type="checkbox" id="need-binding" checked onchange="calculatePrint()">
@@ -343,7 +395,7 @@
     <div style="text-align:center; padding-bottom:10px;"><a href="/privacy-policy.html" style="font-weight:bold; color:#666;">개인정보처리방침</a></div>
 <address class="site-footer-address">
       <strong>스캔데이 왕십리점</strong> · 서울특별시 성동구 마조로 21, 1층<br>
-      <a href="tel:050713655415">0507-1365-5415</a> · <a href="https://map.naver.com/p/entry/place/1081628388" target="_blank" rel="noopener noreferrer">네이버 지도</a><br>
+      <a href="tel:050713033463">0507-1303-3463</a> · <a href="https://map.naver.com/p/entry/place/1081628388" target="_blank" rel="noopener noreferrer">네이버 지도</a><br>
       월·화·수·금 12:00–20:00 / 목·일 10:00–16:00 / 토 12:00–19:00<br>
       공휴일은 대체로 휴무입니다. 공휴일별 운영 여부는 네이버 공지 또는 전화로 확인해 주세요.
     </address>
@@ -403,16 +455,61 @@
       panel.querySelector('.calculation-error').textContent = valid ? '' : '수량과 페이지 수를 입력란의 최소값 이상인 정수로 입력해 주세요.';
     }
 
+    let printItemSequence = 1;
+
+    function updatePrintItemLabels() {
+      document.querySelectorAll('.print-item').forEach((item, index) => {
+        item.querySelector('.print-item-title').textContent = '인쇄 항목 ' + (index + 1);
+        item.querySelector('.remove-print-item').setAttribute('aria-label', '인쇄 항목 ' + (index + 1) + ' 삭제');
+      });
+    }
+
+    function addPrintItem() {
+      const items = document.getElementById('print-items');
+      const item = items.querySelector('.print-item').cloneNode(true);
+      const sequence = ++printItemSequence;
+      const title = item.querySelector('.print-item-title');
+      const printType = item.querySelector('.print-type');
+      const pages = item.querySelector('.print-pages');
+
+      title.id = 'print-item-title-' + sequence;
+      item.setAttribute('aria-labelledby', title.id);
+      item.querySelector('label[for="print-type"]').htmlFor = 'print-type-' + sequence;
+      printType.id = 'print-type-' + sequence;
+      printType.selectedIndex = 0;
+      item.querySelector('label[for="print-pages"]').htmlFor = 'print-pages-' + sequence;
+      pages.id = 'print-pages-' + sequence;
+      pages.value = '';
+      pages.placeholder = '예: 20';
+      item.querySelector('.remove-print-item').hidden = false;
+
+      items.appendChild(item);
+      updatePrintItemLabels();
+      calculatePrint();
+      printType.focus();
+    }
+
+    function removePrintItem(button) {
+      button.closest('.print-item').remove();
+      updatePrintItemLabels();
+      calculatePrint();
+      document.getElementById('add-print-item').focus();
+    }
+
     function calculatePrint() {
-      const pricePerPage = parseInt(document.getElementById('print-type').value) || 0;
-      const pages = parseInt(document.getElementById('print-pages').value) || 0;
+      let printingPrice = 0;
+      document.querySelectorAll('.print-item').forEach(item => {
+        const pricePerPage = Number(item.querySelector('.print-type').value);
+        const pages = item.querySelector('.print-pages').valueAsNumber;
+        printingPrice += pricePerPage * pages;
+      });
       const needBinding = document.getElementById('need-binding').checked;
-      const copies = parseInt(document.getElementById('print-copies').value) || 0;
+      const copies = document.getElementById('print-copies').valueAsNumber;
 
       const bindingPrice = needBinding ? 3000 : 0;
 
-      // ((페이지당 가격 * 페이지수) + 제본가격) * 권수
-      const total = ((pricePerPage * pages) + bindingPrice) * copies;
+      // (인쇄 방식별 인쇄비 합계 + 권당 제본비) * 권수
+      const total = (printingPrice + bindingPrice) * copies;
 
       displayTotal('print', total);
     }
