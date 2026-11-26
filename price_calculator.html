@@ -95,6 +95,16 @@
       background: #007bff;
       color: #fff;
     }
+    .tab-btn:hover {
+      background: #d3d9df;
+    }
+    .tab-btn.active:hover {
+      background: #0069d9;
+    }
+    a.tab-btn {
+      text-decoration: none;
+      text-align: center;
+    }
     .calc-group {
       margin-bottom: 20px;
     }
@@ -190,6 +200,20 @@
       color: #6c757d;
       margin-top: 5px;
     }
+    .info-section {
+      margin-top: 80px;
+    }
+    .info-section .section-head {
+      margin-bottom: 32px;
+    }
+    .info-section .section-head h2 {
+      font-size: 32px;
+      margin-bottom: 0;
+    }
+    .info-links {
+      text-align: center;
+      margin-top: 24px;
+    }
     @media (max-width: 600px) {
       .calculator-section > .container {
         padding-left: 16px;
@@ -260,12 +284,12 @@
 
         <div class="calculator-card">
           <noscript><p>가격 계산에는 JavaScript가 필요합니다. <a href="index.html#pricing">전체 가격표</a>를 확인하거나 <a href="tel:050713033463">0507-1303-3463</a>로 문의해 주세요.</p></noscript>
-          <div class="tabs" role="tablist" aria-label="계산할 서비스">
-            <button type="button" id="print-tab" role="tab" aria-controls="print-calc" aria-selected="true" class="tab-btn active" onclick="switchTab('print')" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</button>
-            <button type="button" id="scan-tab" role="tab" aria-controls="scan-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('scan')" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</button>
-            <button type="button" id="poster-tab" role="tab" aria-controls="poster-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('poster')" data-track="click" data-category="interaction" data-action="calc_tab_poster" data-label="price_calculator">포스터 및 대형 출력</button>
-            <button type="button" id="docscan-tab" role="tab" aria-controls="docscan-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('docscan')" data-track="click" data-category="interaction" data-action="calc_tab_docscan" data-label="price_calculator">낱장 및 문서 스캔</button>
-          </div>
+          <nav class="tabs" aria-label="계산할 서비스">
+            <a href="price-print-binding/" id="print-tab" class="tab-btn active" aria-current="page" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</a>
+            <a href="price-bookscan/" id="scan-tab" class="tab-btn" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</a>
+            <a href="price-poster-printing/" id="poster-tab" class="tab-btn" data-track="click" data-category="interaction" data-action="calc_tab_poster" data-label="price_calculator">포스터 및 대형 출력</a>
+            <a href="price-document-scan/" id="docscan-tab" class="tab-btn" data-track="click" data-category="interaction" data-action="calc_tab_docscan" data-label="price_calculator">낱장 및 문서 스캔</a>
+          </nav>
 
           <!-- 출력 및 제본 계산기 -->
           <div id="print-calc" class="calc-form" role="tabpanel" aria-labelledby="print-tab">
@@ -310,94 +334,25 @@
             </div>
           </div>
 
-          <!-- 북스캔 계산기 -->
-          <div id="scan-calc" class="calc-form hidden" role="tabpanel" aria-labelledby="scan-tab">
-            <div class="calc-group">
-              <label for="scan-cutting-copies">책 재단 권수 (1,000원/권)</label>
-              <input type="number" id="scan-cutting-copies" min="0" value="1" oninput="calculateScan()">
-            </div>
-            <div class="calc-group">
-              <label for="scan-binding-copies">스프링 복원 제본 권수 (3,000원/권)</label>
-              <input type="number" id="scan-binding-copies" min="0" value="1" oninput="calculateScan()">
-            </div>
-            <div class="calc-group">
-              <label for="scan-time">북스캔 예상 시간 (최소 30분, 이후 10분 단위)</label>
-              <select id="scan-time" onchange="calculateScan()">
-                <option value="6000">북스캔 기본 30분 (최대 10권) (6,000원)</option>
-                <option value="8000">40분 (8,000원)</option>
-                <option value="10000">50분 (10,000원)</option>
-                <option value="12000">1시간 (12,000원)</option>
-                <option value="14000">1시간 10분 (14,000원)</option>
-                <option value="16000">1시간 20분 (16,000원)</option>
-                <option value="18000">1시간 30분 (18,000원)</option>
-                <option value="20000">1시간 40분 (20,000원)</option>
-                <option value="22000">1시간 50분 (22,000원)</option>
-                <option value="24000">2시간 (24,000원)</option>
-                <option value="26000">2시간 10분 (26,000원)</option>
-                <option value="28000">2시간 20분 (28,000원)</option>
-                <option value="30000">2시간 30분 (30,000원)</option>
-              </select>
-              <p class="note-text">보통 전공서적 1~3권 당 30분 정도 소요됩니다.</p>
-            </div>
+        </div>
 
-            <div class="calc-group">
-              <label for="ocr-pages">AI 복원 + OCR 문자인식 (총 페이지 수)</label>
-              <input type="number" id="ocr-pages" min="0" value="0" placeholder="예: 350" oninput="calculateScan()">
-              <p class="note-text">페이지 수를 입력하면 100페이지 단위로 올림되어 자동 계산됩니다. (예: 150쪽 = 200쪽 요금)</p>
-            </div>
-            <div class="calc-group">
-              <label for="ocr-lang">AI 복원 + OCR 언어 선택</label>
-              <select id="ocr-lang" onchange="calculateScan()">
-                <option value="500">AI 복원 + 한/영 (100페이지 당 500원)</option>
-                <option value="700">AI 복원 + 기타 다국어 (100페이지 당 700원)</option>
-              </select>
-            </div>
-
-            <div class="result-box">
-              <h3>예상 결제 금액</h3>
-              <div class="result-amount"><span id="scan-total">10,000</span>원</div>
-              <p class="note-text">* 실제 가격은 현장 상황이나 소요 시간에 따라 달라질 수 있습니다.</p>
-            </div>
+        <div class="info-section">
+          <div class="section-head">
+            <span class="section-tag">요금 안내</span>
+            <h2>서비스별 요금 한눈에 보기</h2>
           </div>
-
-          <!-- 대형 출력 계산기 -->
-          <div id="poster-calc" class="calc-form hidden" role="tabpanel" aria-labelledby="poster-tab">
-            <div class="calc-group">
-              <label for="poster-type">용지 및 사이즈</label>
-              <select id="poster-type" onchange="calculatePoster()">
-                <option value="7000">백상지 A2 사이즈 (7,000원)</option>
-                <option value="13000">백상지 A1 사이즈 (13,000원)</option>
-                <option value="14000">포스터 A2 사이즈 (14,000원)</option>
-                <option value="26000">포스터 A1 사이즈 (26,000원)</option>
-              </select>
-            </div>
-            <div class="calc-group">
-              <label for="poster-copies">수량 (장)</label>
-              <input type="number" id="poster-copies" min="1" value="1" oninput="calculatePoster()">
-            </div>
-
-            <div class="result-box">
-              <h3>예상 결제 금액</h3>
-              <div class="result-amount"><span id="poster-total">7,000</span>원</div>
-              <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
-            </div>
-          </div>
-
-          <!-- 낱장 및 문서 스캔 계산기 -->
-          <div id="docscan-calc" class="calc-form hidden" role="tabpanel" aria-labelledby="docscan-tab">
-            <div class="calc-group">
-              <label for="docscan-pages">총 페이지 수 (낱장·문서 스캔, 페이지당 50원)</label>
-              <input type="number" id="docscan-pages" min="1" value="100" oninput="calculateDocscan()">
-              <p class="note-text">1,000장까지 페이지당 50원입니다. 1,000장 초과 대량 작업은 매장으로 문의해 주세요.</p>
-            </div>
-            <div class="result-box">
-              <h3>예상 결제 금액</h3>
-              <div class="result-amount"><span id="docscan-total">5,000원</span></div>
-              <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
-            </div>
+          <div class="pricing-wrapper">
+            <table class="pricing-table">
+              <caption>서비스별 대표 요금</caption>
+              <tbody>
+                <tr class="item-row"><td><a href="price-print-binding/">인쇄 및 제본</a></td><td class="pricing-price">A4 흑백 50원부터</td></tr>
+                <tr class="item-row"><td><a href="price-bookscan/">북스캔 패키지</a></td><td class="pricing-price">30분 6,000원부터</td></tr>
+                <tr class="item-row"><td><a href="price-poster-printing/">포스터 및 대형 출력</a></td><td class="pricing-price">백상지 A2 7,000원부터</td></tr>
+                <tr class="item-row"><td><a href="price-document-scan/">낱장 및 문서 스캔</a></td><td class="pricing-price">페이지당 50원</td></tr>
+              </tbody>
+            </table>
           </div>
         </div>
-        <p class="text-center" style="margin-top: 24px;">항목별 계산기 바로가기: <a href="price-print-binding.html">인쇄 및 제본 가격 계산</a> · <a href="price-bookscan.html">북스캔 가격 계산</a> · <a href="price-poster-printing.html">포스터 및 대형 출력 가격 계산</a> · <a href="price-document-scan.html">낱장 및 문서 스캔 가격 계산</a></p>
       </div>
     </section>
   </main>
@@ -416,48 +371,6 @@
 </footer>
 
   <script>
-    function switchTab(tab) {
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        const selected = btn.id === tab + '-tab';
-        btn.classList.toggle('active', selected);
-        btn.setAttribute('aria-selected', String(selected));
-        btn.tabIndex = selected ? 0 : -1;
-      });
-      document.querySelectorAll('.calc-form').forEach(form => form.classList.add('hidden'));
-
-      if (tab === 'print') {
-        document.querySelectorAll('.tab-btn')[0].classList.add('active');
-        document.getElementById('print-calc').classList.remove('hidden');
-        calculatePrint();
-      } else if (tab === 'scan') {
-        document.querySelectorAll('.tab-btn')[1].classList.add('active');
-        document.getElementById('scan-calc').classList.remove('hidden');
-        calculateScan();
-      } else if (tab === 'poster') {
-        document.querySelectorAll('.tab-btn')[2].classList.add('active');
-        document.getElementById('poster-calc').classList.remove('hidden');
-        calculatePoster();
-      } else if (tab === 'docscan') {
-        document.querySelectorAll('.tab-btn')[3].classList.add('active');
-        document.getElementById('docscan-calc').classList.remove('hidden');
-        calculateDocscan();
-      }
-    }
-
-    document.querySelector('.tabs').addEventListener('keydown', event => {
-      const tabs = Array.from(document.querySelectorAll('.tab-btn'));
-      let index = tabs.indexOf(document.activeElement);
-      if (index < 0) return;
-      if (event.key === 'ArrowRight') index = (index + 1) % tabs.length;
-      else if (event.key === 'ArrowLeft') index = (index + tabs.length - 1) % tabs.length;
-      else if (event.key === 'Home') index = 0;
-      else if (event.key === 'End') index = tabs.length - 1;
-      else return;
-      event.preventDefault();
-      tabs[index].focus();
-      tabs[index].click();
-    });
-
     function displayTotal(service, total) {
       const panel = document.getElementById(service + '-calc');
       const inputs = Array.from(panel.querySelectorAll('input[type="number"]'));
@@ -532,51 +445,6 @@
       displayTotal('print', total);
     }
 
-    function calculateScan() {
-      const cuttingCopies = parseInt(document.getElementById('scan-cutting-copies').value) || 0;
-      const bindingCopies = parseInt(document.getElementById('scan-binding-copies').value) || 0;
-      const scanPrice = parseInt(document.getElementById('scan-time').value) || 0;
-
-      const ocrPages = parseInt(document.getElementById('ocr-pages').value) || 0;
-      const ocrPricePer100 = parseInt(document.getElementById('ocr-lang').value) || 500;
-
-      const cuttingPrice = 1000;
-      const bindingPrice = 3000;
-
-      const ocrPrice = Math.ceil(ocrPages / 100) * ocrPricePer100;
-
-      const total = (cuttingPrice * cuttingCopies) + (bindingPrice * bindingCopies) + scanPrice + ocrPrice;
-
-      displayTotal('scan', total);
-    }
-
-    function calculatePoster() {
-      const price = parseInt(document.getElementById('poster-type').value) || 0;
-      const copies = parseInt(document.getElementById('poster-copies').value) || 0;
-      const total = price * copies;
-      displayTotal('poster', total);
-    }
-
-    function calculateDocscan() {
-      const input = document.getElementById('docscan-pages');
-      const pages = input.valueAsNumber;
-      const totalEl = document.getElementById('docscan-total');
-      const errorEl = document.querySelector('#docscan-calc .calculation-error');
-      const valid = Number.isSafeInteger(pages) && pages >= 1;
-      input.setAttribute('aria-invalid', String(!valid));
-      if (!valid) {
-        totalEl.textContent = '—';
-        if (errorEl) errorEl.textContent = '페이지 수를 1 이상의 정수로 입력해 주세요.';
-        return;
-      }
-      if (errorEl) errorEl.textContent = '';
-      if (pages > 1000) {
-        totalEl.textContent = '매장에 문의';
-        return;
-      }
-      totalEl.textContent = (pages * 50).toLocaleString() + '원';
-    }
-
     // Initialize
     document.querySelectorAll('.calc-form').forEach(panel => {
       const error = document.createElement('p');
@@ -593,9 +461,6 @@
       });
     });
     calculatePrint();
-    calculateScan();
-    calculatePoster();
-    calculateDocscan();
   </script>
   <script src="main.js?v=20261001-6" defer></script>
 </body>
