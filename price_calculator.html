@@ -16,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>스캔·출력 예상 가격 계산기 | 스캔데이 왕십리점 (북스캔, 제본, 포스터)</title>
   <meta name="description" content="왕십리역, 한양대 앞 셀프 북스캔 및 출력 전문점 스캔데이. 흑백 인쇄 50원, 북스캔 30분에 6,000원! 방문 전 예상 결제 금액을 미리 계산해 보세요. 대형 출력, 포스터, 분철 제본까지 합리적인 가격에 제공합니다.">
-  <meta name="keywords" content="스캔데이 가격, 왕십리 북스캔 가격, 한양대 인쇄소 가격, 북스캔 계산기, 제본 가격 계산, 포스터 출력 비용">
+  <meta name="keywords" content="스캔데이 가격, 왕십리 북스캔 가격, 한양대 인쇄소 가격, 북스캔 계산기, 제본 가격 계산, 포스터 출력 비용, 낱장 스캔 가격, 문서 스캔 가격 계산">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://scanday.kr/price_calculator.html">
 
@@ -37,7 +37,7 @@
     "name": "스캔데이 예상 가격 계산기",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "All",
-    "description": "왕십리 스캔데이의 셀프 북스캔, 제본, 대형 출력 및 일반 인쇄(흑백 50원 등)의 예상 비용을 계산해주는 웹 도구입니다.",
+    "description": "왕십리 스캔데이의 셀프 북스캔, 제본, 대형 출력, 일반 인쇄(흑백 50원 등) 및 낱장·문서 스캔(페이지당 50원)의 예상 비용을 계산해주는 웹 도구입니다.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -264,6 +264,7 @@
             <button type="button" id="print-tab" role="tab" aria-controls="print-calc" aria-selected="true" class="tab-btn active" onclick="switchTab('print')" data-track="click" data-category="interaction" data-action="calc_tab_print" data-label="price_calculator">인쇄 및 제본</button>
             <button type="button" id="scan-tab" role="tab" aria-controls="scan-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('scan')" data-track="click" data-category="interaction" data-action="calc_tab_scan" data-label="price_calculator">북스캔 패키지</button>
             <button type="button" id="poster-tab" role="tab" aria-controls="poster-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('poster')" data-track="click" data-category="interaction" data-action="calc_tab_poster" data-label="price_calculator">포스터 및 대형 출력</button>
+            <button type="button" id="docscan-tab" role="tab" aria-controls="docscan-calc" aria-selected="false" tabindex="-1" class="tab-btn" onclick="switchTab('docscan')" data-track="click" data-category="interaction" data-action="calc_tab_docscan" data-label="price_calculator">낱장 및 문서 스캔</button>
           </div>
 
           <!-- 출력 및 제본 계산기 -->
@@ -381,7 +382,22 @@
               <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
             </div>
           </div>
+
+          <!-- 낱장 및 문서 스캔 계산기 -->
+          <div id="docscan-calc" class="calc-form hidden" role="tabpanel" aria-labelledby="docscan-tab">
+            <div class="calc-group">
+              <label for="docscan-pages">총 페이지 수 (낱장·문서 스캔, 페이지당 50원)</label>
+              <input type="number" id="docscan-pages" min="1" value="100" oninput="calculateDocscan()">
+              <p class="note-text">1,000장까지 페이지당 50원입니다. 1,000장 초과 대량 작업은 매장으로 문의해 주세요.</p>
+            </div>
+            <div class="result-box">
+              <h3>예상 결제 금액</h3>
+              <div class="result-amount"><span id="docscan-total">5,000원</span></div>
+              <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
+            </div>
+          </div>
         </div>
+        <p class="text-center" style="margin-top: 24px;">항목별 계산기 바로가기: <a href="price-print-binding.html">인쇄 및 제본 가격 계산</a> · <a href="price-bookscan.html">북스캔 가격 계산</a> · <a href="price-poster-printing.html">포스터 및 대형 출력 가격 계산</a> · <a href="price-document-scan.html">낱장 및 문서 스캔 가격 계산</a></p>
       </div>
     </section>
   </main>
@@ -421,6 +437,10 @@
         document.querySelectorAll('.tab-btn')[2].classList.add('active');
         document.getElementById('poster-calc').classList.remove('hidden');
         calculatePoster();
+      } else if (tab === 'docscan') {
+        document.querySelectorAll('.tab-btn')[3].classList.add('active');
+        document.getElementById('docscan-calc').classList.remove('hidden');
+        calculateDocscan();
       }
     }
 
@@ -537,6 +557,26 @@
       displayTotal('poster', total);
     }
 
+    function calculateDocscan() {
+      const input = document.getElementById('docscan-pages');
+      const pages = input.valueAsNumber;
+      const totalEl = document.getElementById('docscan-total');
+      const errorEl = document.querySelector('#docscan-calc .calculation-error');
+      const valid = Number.isSafeInteger(pages) && pages >= 1;
+      input.setAttribute('aria-invalid', String(!valid));
+      if (!valid) {
+        totalEl.textContent = '—';
+        if (errorEl) errorEl.textContent = '페이지 수를 1 이상의 정수로 입력해 주세요.';
+        return;
+      }
+      if (errorEl) errorEl.textContent = '';
+      if (pages > 1000) {
+        totalEl.textContent = '매장에 문의';
+        return;
+      }
+      totalEl.textContent = (pages * 50).toLocaleString() + '원';
+    }
+
     // Initialize
     document.querySelectorAll('.calc-form').forEach(panel => {
       const error = document.createElement('p');
@@ -555,6 +595,7 @@
     calculatePrint();
     calculateScan();
     calculatePoster();
+    calculateDocscan();
   </script>
   <script src="main.js?v=20261001-6" defer></script>
 </body>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M69D54BW');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포스터 및 대형 출력 가격 계산 | 스캔데이 왕십리점</title>
+  <meta name="description" content="왕십리 스캔데이 포스터 및 대형 출력 가격 계산기. 백상지 A2 7,000원, A1 13,000원, 프리미엄 포스터 A2 14,000원, A1 26,000원. 용지와 수량을 입력하면 예상 금액을 바로 계산할 수 있습니다.">
+  <meta name="keywords" content="포스터 출력 가격 계산, 대형 출력 가격, A1 포스터 가격, A2 출력 가격, 학술 포스터 출력">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scanday.kr/price-poster-printing.html">
+
+  <meta property="og:title" content="포스터 및 대형 출력 가격 계산 | 스캔데이 왕십리점">
+  <meta property="og:description" content="백상지 A2 7,000원, A1 13,000원, 프리미엄 포스터 A2 14,000원, A1 26,000원. 왕십리 스캔데이에서 예상 금액을 바로 계산해 보세요.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scanday.kr/price-poster-printing.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="포스터 및 대형 출력 가격 계산 | 스캔데이 왕십리점">
+  <meta name="twitter:description" content="백상지 A2 7,000원, A1 13,000원부터! 예상 금액을 바로 계산해 보세요!">
+
+  <!-- 구조화 데이터 (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "스캔데이 포스터 및 대형 출력 가격 계산기",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "왕십리 스캔데이의 포스터 및 대형 출력(백상지 A2 7,000원, A1 13,000원, 프리미엄 포스터 A2 14,000원, A1 26,000원)의 예상 비용을 계산해주는 웹 도구입니다.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "A1 포스터 출력은 얼마인가요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "스캔데이 왕십리점의 A1 포스터 출력은 백상지 13,000원, 프리미엄 포스터 26,000원입니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "A2 출력은 얼마인가요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "A2 출력은 백상지 7,000원, 프리미엄 포스터 14,000원입니다."}
+      },
+      {
+        "@type": "Question",
+        "name": "롱사이즈 출력도 가능한가요?",
+        "acceptedAnswer": {"@type": "Answer", "text": "길이 2m, 가로 60cm까지 출력할 수 있습니다. 비규격 대형 및 특수 사이즈는 매장으로 문의해 주세요."}
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://scanday.kr/"},{"@type":"ListItem","position":2,"name":"가격 계산기","item":"https://scanday.kr/price_calculator.html"},{"@type":"ListItem","position":3,"name":"포스터 및 대형 출력 가격 계산","item":"https://scanday.kr/price-poster-printing.html"}]}
+  </script>
+
+  <link rel="icon" href="assets/favicon-64.png">
+
+  <!-- Google Fonts 최적화 로딩 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/style.css?v=20261001-6">
+  <style>
+    .calculator-section {
+      padding: 48px 0 60px;
+      background-color: #f8f9fa;
+      min-height: 80vh;
+    }
+    .calculator-section .section-head {
+      margin-bottom: 32px;
+    }
+    .calculator-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .calc-group {
+      margin-bottom: 20px;
+    }
+    .calc-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #343a40;
+    }
+    .calc-group input, .calc-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    .result-box {
+      margin-top: 30px;
+      padding: 20px;
+      background: #eef2ff;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #c7d2fe;
+    }
+    .result-box h3 {
+      margin: 0 0 10px 0;
+      color: #3730a3;
+      font-size: 18px;
+    }
+    .result-amount {
+      font-size: 32px;
+      font-weight: 800;
+      color: #007bff;
+    }
+    .hidden {
+      display: none;
+    }
+    .note-text {
+      font-size: 13px;
+      color: #6c757d;
+      margin-top: 5px;
+    }
+    .info-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 32px;
+      max-width: 600px;
+      margin: 24px auto 0;
+    }
+    .info-card h2 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+    .info-card h3 {
+      font-size: 1.1rem;
+      margin: 20px 0 8px;
+    }
+    .info-card p, .info-card li {
+      line-height: 1.8;
+      color: #343a40;
+    }
+    .info-card ul {
+      padding-left: 20px;
+    }
+    @media (max-width: 600px) {
+      .calculator-section > .container {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .calculator-section {
+        padding-top: 32px;
+      }
+      .calculator-section .section-head h1 {
+        font-size: 28px;
+      }
+      .calculator-section .section-head p {
+        font-size: 14px;
+      }
+      .calculator-card {
+        padding: 24px 16px;
+      }
+    }
+  </style>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1968455969989451" crossorigin="anonymous"></script>
+  <meta name="naver-site-verification" content="434c06e5dd45b952ba3fe3e7b7217db9660a5e69" />
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M69D54BW" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <header id="header" class="site-header">
+    <nav class="container site-nav" aria-label="주 메뉴">
+      <a href="index.html" class="logo" aria-label="스캔데이 왕십리점 홈">SCANDAY 왕십리점</a>
+      <button class="menu-toggle" type="button" id="menu-toggle" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#services">서비스 안내</a></li>
+        <li><a href="index.html#pricing">가격 안내</a></li>
+        <li><a href="price_calculator.html">가격 계산기</a></li>
+        <li><a href="blog/">블로그</a></li>
+        <li><a href="index.html#how-it-works">이용 방법</a></li>
+        <li><a href="index.html#business-hours">영업시간</a></li>
+        <li><a href="index.html#contact">오시는 길</a></li>
+      </ul>
+      <a href="https://map.naver.com/p/entry/place/1081628388?placePath=/ticket" class="nav-cta" target="_blank" rel="noopener noreferrer" data-track="click" data-category="conversion" data-action="reserve_naver" data-label="site_header">예약하기</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="calculator-section">
+      <div class="container">
+        <div class="section-head text-center">
+          <h1>포스터 및 대형 출력 가격 계산</h1>
+          <p>백상지 A2는 7,000원, A1은 13,000원, 프리미엄 포스터 A2는 14,000원, A1은 26,000원입니다. 길이 2m, 가로 60cm까지 롱사이즈 출력이 가능합니다. 아래에서 용지와 수량을 입력하면 예상 금액을 바로 계산할 수 있습니다.</p>
+        </div>
+
+        <p class="text-center" style="margin-bottom: 24px;">다른 계산기: <a href="price_calculator.html">전체 계산기</a> · <a href="price-print-binding.html">인쇄 및 제본 가격 계산</a> · <a href="price-bookscan.html">북스캔 가격 계산</a> · <a href="price-document-scan.html">낱장 및 문서 스캔 가격 계산</a></p>
+
+        <div class="calculator-card">
+          <noscript><p>가격 계산에는 JavaScript가 필요합니다. <a href="index.html#pricing">전체 가격표</a>를 확인하거나 <a href="tel:050713033463">0507-1303-3463</a>로 문의해 주세요.</p></noscript>
+          <div id="poster-calc" class="calc-form" role="tabpanel" aria-labelledby="poster-tab">
+            <div class="calc-group">
+              <label for="poster-type">용지 및 사이즈</label>
+              <select id="poster-type" onchange="calculatePoster()">
+                <option value="7000">백상지 A2 사이즈 (7,000원)</option>
+                <option value="13000">백상지 A1 사이즈 (13,000원)</option>
+                <option value="14000">포스터 A2 사이즈 (14,000원)</option>
+                <option value="26000">포스터 A1 사이즈 (26,000원)</option>
+              </select>
+            </div>
+            <div class="calc-group">
+              <label for="poster-copies">수량 (장)</label>
+              <input type="number" id="poster-copies" min="1" value="1" oninput="calculatePoster()">
+            </div>
+
+            <div class="result-box">
+              <h3>예상 결제 금액</h3>
+              <div class="result-amount"><span id="poster-total">7,000</span>원</div>
+              <p class="note-text">* 실제 가격은 현장 상황이나 추가 옵션에 따라 달라질 수 있습니다.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>포스터 및 대형 출력 요금 안내</h2>
+          <ul>
+            <li>백상지 A2: 7,000원</li>
+            <li>백상지 A1: 13,000원</li>
+            <li>프리미엄 포스터 A2: 14,000원</li>
+            <li>프리미엄 포스터 A1: 26,000원</li>
+            <li>롱사이즈: 길이 2m, 가로 60cm까지 출력 가능</li>
+          </ul>
+          <h2>자주 묻는 질문</h2>
+          <h3>A1 포스터 출력은 얼마인가요?</h3>
+          <p>백상지 13,000원, 프리미엄 포스터 26,000원입니다.</p>
+          <h3>A2 출력은 얼마인가요?</h3>
+          <p>백상지 7,000원, 프리미엄 포스터 14,000원입니다.</p>
+          <h3>롱사이즈 출력도 가능한가요?</h3>
+          <p>길이 2m, 가로 60cm까지 출력할 수 있습니다. 비규격 대형 및 특수 사이즈는 매장으로 문의해 주세요.</p>
+          <p><a href="services/poster.html">포스터 출력 서비스 자세히 보기</a> · <a href="index.html#pricing">전체 가격표 보기</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2026 스캔데이 왕십리점 셀프 북스캔 & 제본. All Rights Reserved.</p>
+    </div>
+    <div style="text-align:center; padding-bottom:10px;"><a href="/privacy-policy.html" style="font-weight:bold; color:#666;">개인정보처리방침</a></div>
+<address class="site-footer-address">
+      <strong>스캔데이 왕십리점</strong> · 서울특별시 성동구 마조로 21, 1층<br>
+      <a href="tel:050713033463">0507-1303-3463</a> · <a href="https://map.naver.com/p/entry/place/1081628388" target="_blank" rel="noopener noreferrer">네이버 지도</a><br>
+      월·화·수·금 12:00–20:00 / 목·일 10:00–16:00 / 토 12:00–19:00<br>
+      공휴일은 대체로 휴무입니다. 공휴일별 운영 여부는 네이버 공지 또는 전화로 확인해 주세요.
+    </address>
+</footer>
+
+  <script>
+    function displayTotal(service, total) {
+      const panel = document.getElementById(service + '-calc');
+      const inputs = Array.from(panel.querySelectorAll('input[type="number"]'));
+      let valid = true;
+      inputs.forEach(input => {
+        const value = input.valueAsNumber;
+        const fieldValid = Number.isSafeInteger(value) && value >= Number(input.min);
+        input.setAttribute('aria-invalid', String(!fieldValid));
+        valid = valid && fieldValid;
+      });
+      valid = valid && Number.isSafeInteger(total) && total >= 0;
+      document.getElementById(service + '-total').textContent = valid ? total.toLocaleString() : '—';
+      panel.querySelector('.calculation-error').textContent = valid ? '' : '수량과 페이지 수를 입력란의 최소값 이상인 정수로 입력해 주세요.';
+    }
+
+    function calculatePoster() {
+      const price = parseInt(document.getElementById('poster-type').value) || 0;
+      const copies = parseInt(document.getElementById('poster-copies').value) || 0;
+      const total = price * copies;
+      displayTotal('poster', total);
+    }
+
+    // Initialize
+    document.querySelectorAll('.calc-form').forEach(panel => {
+      const error = document.createElement('p');
+      error.id = panel.id + '-error';
+      error.className = 'calculation-error';
+      error.setAttribute('role', 'status');
+      panel.querySelector('.result-box').appendChild(error);
+      panel.querySelector('.result-amount').setAttribute('aria-live', 'polite');
+      panel.querySelector('.result-amount').setAttribute('aria-atomic', 'true');
+      panel.querySelectorAll('input[type="number"]').forEach(input => {
+        input.required = true;
+        input.step = '1';
+        input.setAttribute('aria-describedby', error.id);
+      });
+    });
+    calculatePoster();
+  </script>
+  <script src="main.js?v=20261001-6" defer></script>
+</body>
+</html>
